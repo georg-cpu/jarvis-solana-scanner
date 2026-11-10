@@ -1,27 +1,16 @@
-# JARVIS SOLANA TREND SCANNER
-Проверка (UTC): 2026-11-10T02:04:17+00:00
-Открити адреси: 49 | Пазарни двойки: 48 | Минали базов филтър: 3
+# JARVIS SOLANA TREND SCANNER v2
+Проверка UTC: 2026-11-10T02:09:12+00:00
+Открити: 49 | Двойки: 48 | Филтър: 1
 
-**Всички резултати са WATCH / NO TRADE, докато не минат on-chain проверки за сигурност.**
+**Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**
 
-## 1. BORLY — WATCH
-Mint: `F22QdNn7VYrtTgYDHEYcqQKVtDH8msh2xs6tnGxepump`
-Liquidity $107,339 | Market cap/FDV $1,775,882 | 1h volume $328,363
-1h buys/sells: 11964/5051 | 1h change: +76.7%
-Source: https://dexscreener.com/solana/7xwnpcwt4upj2hyuff4czvmmsvvws13k1w8ip6y4o5zq
-Risk: holder concentration / authorities / sellability UNKNOWN. No verified entry, SL or TP.
-
-## 2. OnlyCats — WATCH
+## 1. OnlyCats — NO TRADE
 Mint: `BAftaSb1HVqBn5723w72WLcXU7YASSgmVxQxJJAJpump`
-Liquidity $87,197 | Market cap/FDV $1,225,162 | 1h volume $144,182
-1h buys/sells: 13959/5183 | 1h change: -5.3%
+Pool: `TC3DBFimQpxjs92NaqDMcRHyb9zuR1MPt8KKWfQRZBK`
+Liquidity: $86,883 | Cap/FDV: $1,217,936 | Volume 1h: $131,442
+Buys/sells 1h: 14220/5123 | Change 1h: +10.0%
+Status reason: Insufficient closed M5/M1 candles
+ENTRY / SL / TP: NOT CONFIRMED — no invented prices
 Source: https://dexscreener.com/solana/tc3dbfimqpxjs92naqdmcrhyb9zur1mpt8kkwfqrzbk
-Risk: holder concentration / authorities / sellability UNKNOWN. No verified entry, SL or TP.
-
-## 3. Macca — WATCH
-Mint: `AKotzk1dhcNangAJBtvNKtT9bhbSVZc2mMhRFgkFpump`
-Liquidity $106,306 | Market cap/FDV $831,556 | 1h volume $24,495
-1h buys/sells: 84/76 | 1h change: -3.4%
-Source: https://dexscreener.com/solana/4fonnnmmkma66ppcia9557cg63s2bnn9uofcakxxbmvg
-Risk: holder concentration / authorities / sellability UNKNOWN. No verified entry, SL or TP.
+Holder risk / authorities / sellability: UNKNOWN
 
