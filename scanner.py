@@ -116,6 +116,20 @@ def main():
                     addresses.append(item["tokenAddress"])
         except Exception as exc:
             errors.append(f"{endpoint}: {type(exc).__name__}: {str(exc)[:100]}")
+    # Broaden discovery with GeckoTerminal's public Solana new-pool feed.
+    # This is sampled discovery, NOT an exhaustive on-chain market index.
+    gecko_pools = []
+    for page in (1, 2, 3):
+        try:
+            feed = fetch(GECKO + f"/networks/solana/new_pools?page={page}")
+            for item in feed.get("data", []):
+                pool_id = item.get("id", "")
+                pool_address = pool_id.split("solana_", 1)[-1] if pool_id.startswith("solana_") else ""
+                if pool_address:
+                    gecko_pools.append(pool_address)
+        except Exception as exc:
+            errors.append(f"Gecko new pools page {page}: {type(exc).__name__}")
+        time.sleep(1.2)
     addresses = list(dict.fromkeys(addresses))[:180]
     pairs = []
     for i in range(0, len(addresses), 30):
@@ -126,6 +140,24 @@ def main():
         except Exception as exc:
             errors.append(f"DEX batch {i // 30}: {type(exc).__name__}")
         time.sleep(0.2)
+    # Resolve newly listed pool addresses to DEX Screener pair records.
+    for i in range(0, len(gecko_pools), 25):
+        try:
+            # Individual pair endpoint accepts a pair address.
+            for pool in gecko_pools[i:i + 25]:
+                result = fetch(DEX + "/latest/dex/pairs/solana/" + pool)
+                batch = result.get("pairs") or []
+                if isinstance(batch, list):
+                    pairs.extend(batch)
+                time.sleep(0.15)
+        except Exception as exc:
+            errors.append(f"New-pool pair lookup batch {i // 25}: {type(exc).__name__}")
+    # Include newly discovered pool base-token addresses in the candidate set.
+    addresses = list(dict.fromkeys(addresses + [
+        (p.get("baseToken") or {}).get("address")
+        for p in pairs if p.get("chainId") == "solana"
+        and (p.get("baseToken") or {}).get("address")
+    ]))
     by_token = {}
     for p in pairs:
         addr = (p.get("baseToken") or {}).get("address")
@@ -166,16 +198,16 @@ def main():
             c["signal"] = {"status": "NO TRADE", "reason": "OHLCV unavailable or API error"}
             errors.append(f"OHLCV {c['symbol']}: {type(exc).__name__}: {str(exc)[:100]}")
         time.sleep(1.2)
-    state = {"checked_at_utc": now, "discovered_addresses": len(addresses),
+    state = {"checked_at_utc": now, "discovered_addresses": len(addresses), "new_pools_sampled": len(gecko_pools),
              "pairs": len(pairs), "qualified": len(qualified), "candidates": top,
              "errors": errors, "limitations": [
-                 "Discovery uses partial, promotion-biased DEX Screener endpoints",
+                 "Discovery combines DEX Screener promotion feeds and GeckoTerminal sampled new pools; NOT whole-market coverage",
                  "Holder concentration, token authorities, deployer and sellability NOT verified",
                  "Signals are conditional educational setups; no wallet or execution",
                  "M1/M5 candles may be unavailable; exact levels omitted when unverified"]}
     STATE.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = ["# JARVIS SOLANA TREND SCANNER v2", f"Проверка UTC: {now}",
-             f"Открити: {len(addresses)} | Двойки: {len(pairs)} | Филтър: {len(qualified)}", "",
+             f"Открити: {len(addresses)} | Нови пулове (извадка): {len(gecko_pools)} | Двойки: {len(pairs)} | Филтър: {len(qualified)}", "",
              "**Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**", ""]
     for i, c in enumerate(top, 1):
         s = c["signal"]
