@@ -1,0 +1,59 @@
+{
+  "checked_at_utc": "2026-11-10T02:04:07+00:00",
+  "discovered_addresses": 49,
+  "pairs": 48,
+  "qualified": 3,
+  "candidates": [
+    {
+      "address": "F22QdNn7VYrtTgYDHEYcqQKVtDH8msh2xs6tnGxepump",
+      "symbol": "BORLY",
+      "market_cap_usd": 1775882.0,
+      "liquidity_usd": 107338.93,
+      "volume_h1_usd": 328362.98,
+      "buys_h1": 11964,
+      "sells_h1": 5051,
+      "price_change_h1_pct": 76.7,
+      "price_usd": "0.001784",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/7xwnpcwt4upj2hyuff4czvmmsvvws13k1w8ip6y4o5zq",
+      "score": 106.4,
+      "status": "WATCH — UNVERIFIED RUG RISK"
+    },
+    {
+      "address": "BAftaSb1HVqBn5723w72WLcXU7YASSgmVxQxJJAJpump",
+      "symbol": "OnlyCats",
+      "market_cap_usd": 1225162.0,
+      "liquidity_usd": 87197.11,
+      "volume_h1_usd": 144181.73,
+      "buys_h1": 13959,
+      "sells_h1": 5183,
+      "price_change_h1_pct": -5.35,
+      "price_usd": "0.001231",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/tc3dbfimqpxjs92naqdmcrhyb9zur1mpt8kkwfqrzbk",
+      "score": 72.9,
+      "status": "WATCH — UNVERIFIED RUG RISK"
+    },
+    {
+      "address": "AKotzk1dhcNangAJBtvNKtT9bhbSVZc2mMhRFgkFpump",
+      "symbol": "Macca",
+      "market_cap_usd": 831556.0,
+      "liquidity_usd": 106305.58,
+      "volume_h1_usd": 24494.81,
+      "buys_h1": 84,
+      "sells_h1": 76,
+      "price_change_h1_pct": -3.39,
+      "price_usd": "0.0008723",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/4fonnnmmkma66ppcia9557cg63s2bnn9uofcakxxbmvg",
+      "score": 43.8,
+      "status": "WATCH — UNVERIFIED RUG RISK"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Discovery endpoints are partial and promotion-biased",
+    "Holder concentration, authorities, deployer and sellability not verified",
+    "No trade recommendation or execution"
+  ]
+}
