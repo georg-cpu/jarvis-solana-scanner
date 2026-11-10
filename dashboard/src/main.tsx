@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Connection, PublicKey, VersionedTransaction } from '@solana/web3.js';
+import { PublicKey, VersionedTransaction } from '@solana/web3.js';
 import { ConnectionProvider, WalletProvider, useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { WalletModalProvider, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
@@ -24,9 +24,9 @@ const RPC_ENDPOINT = import.meta.env.VITE_SOLANA_RPC_URL || 'https://api.mainnet
 const JUPITER_ORDER_URL = 'https://api.jup.ag/swap/v2/order';
 const JUPITER_EXECUTE_URL = 'https://api.jup.ag/swap/v2/execute';
 
-function App() {
+export function App() {
   const { connection } = useConnection();
-  const { publicKey, connected, signTransaction, sendTransaction, wallet, disconnect } = useWallet();
+  const { publicKey, connected, signTransaction, wallet, disconnect } = useWallet();
   const [mode, setMode] = useState<TradingMode>(DEFAULT_MODE);
   const [balance, setBalance] = useState<number | null>(null);
   const [tokens, setTokens] = useState<Array<{ mint: string; amount: string; decimals: number }>>([]);
@@ -43,8 +43,18 @@ function App() {
   const [confirmation, setConfirmation] = useState('');
   const apiKey = import.meta.env.VITE_JUPITER_API_KEY as string | undefined;
 
-  const adapters = useMemo(() => [new PhantomWalletAdapter(), new SolflareWalletAdapter()], []);
-  void adapters; // WalletProvider is configured once in the root wrapper below.
+  const active = useRef(false);
+  useLayoutEffect(() => {
+    active.current = true;
+    return () => { active.current = false; };
+  }, []);
+
+  function clearQuote() {
+    setOrder(null);
+    setLiveConfirmed(false);
+    setNotice('');
+    setAuthorityWarning('Mint authority details not checked yet.');
+  }
 
   const refreshWallet = useCallback(async () => {
     if (!publicKey) {
@@ -88,7 +98,7 @@ function App() {
   }
 
   async function fetchOrder() {
-    setError(''); setNotice(''); setConfirmation(''); setOrder(null); setBusy(true);
+    setError(''); setNotice(''); setConfirmation(''); clearQuote(); setBusy(true);
     try {
       if (!publicKey) throw new Error('Connect a Phantom or Solflare wallet to request a taker-specific route.');
       const mint = outputMint.trim();
@@ -118,16 +128,20 @@ function App() {
       if (!liveConfirmed) throw new Error('Confirm the per-transaction approval checkbox first.');
       if (!connected || !publicKey || !signTransaction) throw new Error('Connected wallet must support explicit transaction signing.');
       if (!order?.transaction || !order.requestId) throw new Error('Refresh the Jupiter quote before proceeding.');
+      setLiveConfirmed(false);
+      setOrder(null);
       const tx = VersionedTransaction.deserialize(Uint8Array.from(atob(order.transaction), c => c.charCodeAt(0)));
       // Simulate unsigned message against RPC; sigVerify is deliberately false before wallet approval.
       const simulation = await connection.simulateTransaction(tx, { sigVerify: false, commitment: 'confirmed' });
       if (simulation.value.err) throw new Error(`Transaction simulation failed: ${JSON.stringify(simulation.value.err)}. ${simulation.value.logs?.slice(-3).join(' | ') ?? ''}`);
       const fee = await connection.getFeeForMessage(tx.message, 'confirmed');
       if (fee.value === null) throw new Error('Could not estimate the transaction network fee; refusing to proceed.');
+      if (!active.current) throw new Error('Wallet changed. Request a fresh quote.');
       const approval = window.confirm(`LIVE TRANSACTION REVIEW\n\nWallet: ${publicKey.toBase58()}\nInput: ${amountSol} SOL\nOutput mint: ${outputMint}\nMax slippage: ${slippageBps} bps\nEstimated network fee: ${fee.value / 1e9} SOL\n\nContinue to your wallet for explicit transaction approval?`);
       if (!approval) throw new Error('Transaction cancelled before wallet signing.');
       // Each transaction requires this direct user action and a wallet-managed confirmation prompt.
       const signed = await signTransaction(tx);
+      if (!active.current) throw new Error('Wallet changed. Request a fresh quote.');
       const signedBase64 = btoa(String.fromCharCode(...signed.serialize()));
       const response = await fetch(JUPITER_EXECUTE_URL, {
         method: 'POST', headers: { 'Content-Type': 'application/json', ...(apiKey ? { 'x-api-key': apiKey } : {}) },
@@ -154,11 +168,11 @@ function App() {
       <article className="card"><div className="section-title"><div><div className="eyebrow">NON-CUSTODIAL CONNECTION</div><h2>Wallet</h2></div><span className={connected ? 'badge good' : 'badge'}>{connected ? 'CONNECTED' : 'DISCONNECTED'}</span></div>
         <p>Provider: <strong>{wallet?.adapter.name ?? 'None'}</strong></p><p className="address">{publicKey?.toBase58() ?? 'No public address connected'}</p><p className="balance">{balance === null ? '—' : `${balance.toFixed(5)} SOL`}</p><div className="token-list">{tokens.map(t => <div key={t.mint} className="token-row"><span>{t.mint.slice(0, 7)}…{t.mint.slice(-5)}</span><span>{t.amount}</span></div>)}</div><p className="muted">Wallet adapter handles keys. JARVIS never requests or stores a seed phrase or private key.</p>{connected && <button className="text-button" onClick={() => void disconnect()}>Disconnect</button>}</article>
       <article className="card trade"><div className="section-title"><div><div className="eyebrow">MANUAL SWAP PREVIEW</div><h2>Trading</h2></div><span className={`badge ${mode === 'PAPER' ? 'good' : 'warn'}`}>{mode}</span></div>
-        <label>Mode<select value={mode} onChange={e => { setMode(e.target.value as TradingMode); setLiveConfirmed(false); setOrder(null); }}><option value="PAPER">PAPER — preview only</option><option value="LIVE">LIVE — wallet approval per transaction</option></select></label>
+        <label>Mode<select disabled={busy} value={mode} onChange={e => { setMode(e.target.value as TradingMode); clearQuote(); }}><option value="PAPER">PAPER — preview only</option><option value="LIVE">LIVE — wallet approval per transaction</option></select></label>
         {mode === 'LIVE' && <div className="warning">LIVE is active only for this browser session. Each transaction requires simulation, an explicit confirmation, and a wallet signature. Never approve an unfamiliar transaction.</div>}
-        <label>Input amount (SOL)<input type="number" min="0" step="0.001" value={amountSol} onChange={e => setAmountSol(e.target.value)} /></label>
-        <label>Output token mint<input inputMode="text" placeholder="Solana token mint address" value={outputMint} onChange={e => setOutputMint(e.target.value)} /></label>
-        <div className="two"><label>Slippage (bps)<input type="number" min="1" max={MAX_SLIPPAGE_BPS} value={slippageBps} onChange={e => setSlippageBps(Number(e.target.value))} /></label><label>Position cap (SOL)<input type="number" min="0.001" step="0.001" value={positionLimit} onChange={e => setPositionLimit(Number(e.target.value))} /></label></div>
+        <label>Input amount (SOL)<input type="number" min="0" step="0.001" value={amountSol} disabled={busy} onChange={e => { clearQuote(); setAmountSol(e.target.value); }} /></label>
+        <label>Output token mint<input inputMode="text" placeholder="Solana token mint address" value={outputMint} disabled={busy} onChange={e => { clearQuote(); setOutputMint(e.target.value); }} /></label>
+        <div className="two"><label>Slippage (bps)<input type="number" min="1" max={MAX_SLIPPAGE_BPS} value={slippageBps} disabled={busy} onChange={e => { clearQuote(); setSlippageBps(Number(e.target.value)); }} /></label><label>Position cap (SOL)<input type="number" min="0.001" step="0.001" value={positionLimit} disabled={busy} onChange={e => { clearQuote(); setPositionLimit(Number(e.target.value)); }} /></label></div>
         <button className="primary" disabled={busy || !connected} onClick={() => void fetchOrder()}>{busy ? 'Working…' : 'Get Jupiter quote'}</button>
         {order && <div className="quote"><h3>Route preview</h3><div className="token-row"><span>Estimated output (raw units)</span><strong>{order.outAmount ?? 'Unavailable'}</strong></div><div className="token-row"><span>Price impact</span><strong>{quoteImpact === null ? 'Unavailable' : `${quoteImpact.toFixed(3)}%`}</strong></div><div className="token-row"><span>Pool liquidity / fee</span><strong>Not returned / unverified</strong></div><p className="muted">Quote is an estimate, may expire, and is not an execution recommendation.</p>{riskWarnings.map(w => <p className="warning" key={w}>{w}</p>)}</div>}
         {mode === 'LIVE' && order && <><label className="checkbox"><input type="checkbox" checked={liveConfirmed} onChange={e => setLiveConfirmed(e.target.checked)} />I reviewed this order and want to simulate it, then approve this exact transaction in my wallet.</label><button className="live-button" disabled={busy || !liveConfirmed} onClick={() => void simulateAndSubmit()}>{busy ? 'Simulating…' : 'Simulate, review & request wallet signature'}</button></>}
@@ -173,8 +187,14 @@ function App() {
 function messageOf(error: unknown): string { return error instanceof Error ? error.message : 'Unexpected wallet or provider error.'; }
 
 const walletAdapters = [new PhantomWalletAdapter(), new SolflareWalletAdapter()];
+function WalletSession() {
+  const { wallet, publicKey } = useWallet();
+  return <App key={JSON.stringify([wallet?.adapter.name, publicKey?.toBase58()])} />;
+}
+
 function Root() {
-  return <ConnectionProvider endpoint={RPC_ENDPOINT}><WalletProvider wallets={walletAdapters} autoConnect={false}><WalletModalProvider><App /></WalletModalProvider></WalletProvider></ConnectionProvider>;
+  return <ConnectionProvider endpoint={RPC_ENDPOINT}><WalletProvider wallets={walletAdapters} autoConnect={false}><WalletModalProvider><WalletSession /></WalletModalProvider></WalletProvider></ConnectionProvider>;
 }
 
 createRoot(document.getElementById('root')!).render(<React.StrictMode><Root /></React.StrictMode>);
+

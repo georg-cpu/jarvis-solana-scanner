@@ -9,6 +9,7 @@ from solana_wallet_trading import (
     TradingValidationError,
     JupiterClient,
     build_trade_plan,
+    risk_check_quote,
     sanitize_public_key,
     validate_token_mint,
     validate_wallet_connection,
@@ -50,10 +51,7 @@ def test_live_trade_requires_explicit_approval():
 
 def test_risk_policy_blocks_high_impact():
     quote = {"priceImpactPct": 9.5, "liquidityUsd": 300000, "outAmount": 1000, "swapTransaction": "abcd"}
-    decision = {
-        "approved": False,
-        "warnings": ["Price impact 9.50% exceeds limit 2.00%."]
-    }
+    decision = risk_check_quote(quote, TradeRiskPolicy(), 50, TradingMode.PAPER.value)
     assert decision["approved"] is False
     assert "Price impact" in decision["warnings"][0]
 

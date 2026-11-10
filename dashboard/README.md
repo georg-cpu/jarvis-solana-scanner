@@ -1,6 +1,6 @@
 # JARVIS Wallet Dashboard (experimental)
 
-The repository is a Python 3.12 scanner and report generator; it did not previously contain a web dashboard, JavaScript package manifest, or wallet-adapter integration. This is a separate Vite/React dashboard under `dashboard/`. Scanner code and scheduled report generation remain unchanged. The earlier attempt added malformed filenames rather than usable module files; this standalone app is the corrected integration path and does not rely on those files.
+The repository is a Python 3.12 scanner and report generator; it did not previously contain a web dashboard, JavaScript package manifest, or wallet-adapter integration. This is a separate Vite/React dashboard under `dashboard/`. Scanner code and scheduled report generation remain unchanged.
 
 ## Run locally
 
