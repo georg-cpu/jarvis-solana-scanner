@@ -1,64 +1,203 @@
-import json, os, time, urllib.request, datetime
+"""JARVIS Solana Scanner: discovery + conditional M5/M1 setups (no execution)."""
+import datetime
+import json
+import math
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from pathlib import Path
-BASE='https://api.dexscreener.com'
-ROOT=Path(__file__).parent
-STATE=ROOT/'state.json'
-REPORT=ROOT/'report.md'
 
-def get(path):
-    req=urllib.request.Request(BASE+path,headers={'User-Agent':'JARVIS-Solana-Scanner/1.0','Accept':'application/json'})
-    with urllib.request.urlopen(req,timeout=25) as r:return json.load(r)
+ROOT = Path(__file__).parent
+STATE = ROOT / "state.json"
+REPORT = ROOT / "report.md"
+DEX = "https://api.dexscreener.com"
+GECKO = "https://api.geckoterminal.com/api/v2"
+HEADERS = {"User-Agent": "JARVIS-Solana-Scanner/2.0", "Accept": "application/json"}
 
-def number(x):
-    try:return float(x or 0)
-    except (ValueError,TypeError):return 0.
+
+def fetch(url):
+    request = urllib.request.Request(url, headers=HEADERS)
+    with urllib.request.urlopen(request, timeout=22) as response:
+        return json.load(response)
+
+
+def num(value):
+    try:
+        result = float(value)
+        return result if math.isfinite(result) else 0.0
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def candles(pool, aggregate):
+    path = f"/networks/solana/pools/{urllib.parse.quote(pool, safe='')}/ohlcv/minute"
+    url = GECKO + path + f"?aggregate={aggregate}&limit=70&currency=usd&token=base"
+    data = fetch(url)
+    raw = data["data"]["attributes"]["ohlcv_list"]
+    rows = []
+    for item in raw:
+        if len(item) < 6:
+            continue
+        timestamp, op, high, low, close, volume = item[:6]
+        vals = [num(v) for v in (op, high, low, close, volume)]
+        if min(vals[:4]) <= 0 or vals[1] < vals[2]:
+            continue
+        rows.append({"ts": int(timestamp), "open": vals[0], "high": vals[1],
+                     "low": vals[2], "close": vals[3], "volume": vals[4]})
+    rows.sort(key=lambda row: row["ts"])
+    # Exclude the still-forming candle, based on UTC clock.
+    now = time.time()
+    seconds = aggregate * 60
+    return [row for row in rows if row["ts"] + seconds <= now]
+
+
+def atr(rows, length=14):
+    if len(rows) < length + 1:
+        return None
+    ranges = []
+    for i in range(1, len(rows)):
+        row, prev = rows[i], rows[i - 1]
+        ranges.append(max(row["high"] - row["low"],
+                          abs(row["high"] - prev["close"]),
+                          abs(row["low"] - prev["close"])))
+    return sum(ranges[-length:]) / length
+
+
+def setup(m5, m1):
+    """Conservative breakout/retest candidate; informational, not an order."""
+    if len(m5) < 30 or len(m1) < 25:
+        return {"status": "NO TRADE", "reason": "Insufficient closed M5/M1 candles"}
+    last5, last1 = m5[-1], m1[-1]
+    # Require recent and reasonably synchronized data.
+    if time.time() - last5["ts"] > 15 * 60 or time.time() - last1["ts"] > 5 * 60:
+        return {"status": "NO TRADE", "reason": "Stale OHLCV data"}
+    a = atr(m5)
+    if not a or a <= 0:
+        return {"status": "NO TRADE", "reason": "ATR unavailable"}
+    previous_high = max(x["high"] for x in m5[-13:-1])
+    previous_low = min(x["low"] for x in m5[-13:-1])
+    avg_vol = sum(x["volume"] for x in m5[-13:-1]) / 12
+    trend = last5["close"] > sum(x["close"] for x in m5[-21:-1]) / 20
+    breakout = last5["close"] > previous_high
+    volume_ok = avg_vol > 0 and last5["volume"] >= avg_vol * 1.5
+    m1_confirm = last1["close"] > max(x["high"] for x in m1[-7:-1])
+    if not (trend and breakout and volume_ok and m1_confirm):
+        return {"status": "WAIT", "reason": "M5 breakout + volume + M1 confirmation not all met",
+                "m5_breakout": breakout, "volume_confirmed": volume_ok,
+                "m1_confirmed": m1_confirm, "trend_confirmed": trend}
+    entry = last1["close"]
+    # Avoid setups whose M1 entry is too extended beyond the M5 breakout.
+    if entry > previous_high + 1.5 * a or entry < previous_high:
+        return {"status": "WAIT", "reason": "M1 entry is extended or below breakout"}
+    stop = max(previous_low, entry - 2 * a)
+    if stop >= entry:
+        return {"status": "NO TRADE", "reason": "Invalid stop geometry"}
+    risk = entry - stop
+    if risk / entry > 0.15 or risk / entry < 0.005:
+        return {"status": "NO TRADE", "reason": "Risk distance outside 0.5%-15% bounds"}
+    return {"status": "CONDITIONAL ENTRY", "reason": "M5 breakout, volume and M1 confirmation",
+            "entry_usd": entry, "stop_usd": stop, "tp1_usd": entry + 2 * risk,
+            "tp2_usd": entry + 3 * risk, "tp3_usd": entry + 5 * risk,
+            "rr": [2, 3, 5], "risk_pct": 100 * risk / entry,
+            "m5_candle_utc": datetime.datetime.fromtimestamp(last5["ts"], datetime.timezone.utc).isoformat(),
+            "m1_candle_utc": datetime.datetime.fromtimestamp(last1["ts"], datetime.timezone.utc).isoformat(),
+            "note": "Indicative candle prices; not executable quotes. Slippage, fees and MEV excluded."}
+
 
 def main():
-    now=datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds')
-    sources=['/token-profiles/latest/v1','/token-boosts/latest/v1','/token-boosts/top/v1']
-    addresses=[];errors=[]
-    for endpoint in sources:
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    addresses, errors = [], []
+    for endpoint in ["/token-profiles/latest/v1", "/token-boosts/latest/v1", "/token-boosts/top/v1"]:
         try:
-            result=get(endpoint)
-            for item in result if isinstance(result,list) else []:
-                if item.get('chainId')=='solana' and item.get('tokenAddress'):
-                    addresses.append(item['tokenAddress'])
-        except Exception as exc:errors.append(f'{endpoint}: {type(exc).__name__}')
-    addresses=list(dict.fromkeys(addresses))[:180]
-    pairs=[]
-    for i in range(0,len(addresses),30):
+            data = fetch(DEX + endpoint)
+            for item in data if isinstance(data, list) else []:
+                if item.get("chainId") == "solana" and item.get("tokenAddress"):
+                    addresses.append(item["tokenAddress"])
+        except Exception as exc:
+            errors.append(f"{endpoint}: {type(exc).__name__}: {str(exc)[:100]}")
+    addresses = list(dict.fromkeys(addresses))[:180]
+    pairs = []
+    for i in range(0, len(addresses), 30):
         try:
-            batch=get('/tokens/v1/solana/'+','.join(addresses[i:i+30]))
-            if isinstance(batch,list):pairs.extend(batch)
-        except Exception as exc:errors.append(f'batch {i//30}: {type(exc).__name__}')
-        time.sleep(.2)
-    by_token={}
+            batch = fetch(DEX + "/tokens/v1/solana/" + ",".join(addresses[i:i + 30]))
+            if isinstance(batch, list):
+                pairs.extend(batch)
+        except Exception as exc:
+            errors.append(f"DEX batch {i // 30}: {type(exc).__name__}")
+        time.sleep(0.2)
+    by_token = {}
     for p in pairs:
-        if p.get('chainId')!='solana':continue
-        addr=(p.get('baseToken') or {}).get('address')
-        if not addr or addr not in addresses:continue
-        if number((p.get('liquidity') or {}).get('usd'))>number((by_token.get(addr,{}).get('liquidity') or {}).get('usd')):
-            by_token[addr]=p
-    candidates=[]
-    for addr,p in by_token.items():
-        liq=number((p.get('liquidity') or {}).get('usd'))
-        cap=number(p.get('marketCap') or p.get('fdv'))
-        vol=number((p.get('volume') or {}).get('h1'))
-        tx=(p.get('txns') or {}).get('h1') or {}
-        buys=number(tx.get('buys'));sells=number(tx.get('sells'))
-        change=number((p.get('priceChange') or {}).get('h1'))
-        if not (liq>=15000 and cap>=20000 and vol>=10000 and buys>=20 and buys>sells and -10<=change<=80):continue
-        score=round(min(liq/50000,2)*15+min(vol/max(liq,1),4)*12+min(buys/max(sells,1),3)*10+max(0,min(change,40))*.4,1)
-        candidates.append({'address':addr,'symbol':(p.get('baseToken') or {}).get('symbol','?'), 'market_cap_usd':cap,'liquidity_usd':liq,'volume_h1_usd':vol,'buys_h1':int(buys),'sells_h1':int(sells),'price_change_h1_pct':change,'price_usd':p.get('priceUsd'),'dex':p.get('dexId'),'url':p.get('url'),'score':score,'status':'WATCH — UNVERIFIED RUG RISK'})
-    candidates.sort(key=lambda c:c['score'],reverse=True)
-    top=candidates[:5]
-    state={'checked_at_utc':now,'discovered_addresses':len(addresses),'pairs':len(pairs),'qualified':len(candidates),'candidates':top,'errors':errors,'limitations':['Discovery endpoints are partial and promotion-biased','Holder concentration, authorities, deployer and sellability not verified','No trade recommendation or execution']}
-    STATE.write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    lines=['# JARVIS SOLANA TREND SCANNER',f'Проверка (UTC): {now}',f'Открити адреси: {len(addresses)} | Пазарни двойки: {len(pairs)} | Минали базов филтър: {len(candidates)}','', '**Всички резултати са WATCH / NO TRADE, докато не минат on-chain проверки за сигурност.**','']
-    for i,c in enumerate(top,1):
-        lines.extend([f"## {i}. {c['symbol']} — WATCH",f"Mint: `{c['address']}`",f"Liquidity ${c['liquidity_usd']:,.0f} | Market cap/FDV ${c['market_cap_usd']:,.0f} | 1h volume ${c['volume_h1_usd']:,.0f}",f"1h buys/sells: {c['buys_h1']}/{c['sells_h1']} | 1h change: {c['price_change_h1_pct']:+.1f}%",f"Source: {c['url']}","Risk: holder concentration / authorities / sellability UNKNOWN. No verified entry, SL or TP.",''])
-    if not top:lines.append('Няма кандидати, преминали базовите филтри. Това не означава, че няма трендове на пазара.')
-    if errors:lines.append('API errors: '+', '.join(errors))
-    REPORT.write_text('\n'.join(lines)+'\n',encoding='utf-8')
-    print('\n'.join(lines))
-if __name__=='__main__':main()
+        addr = (p.get("baseToken") or {}).get("address")
+        if p.get("chainId") != "solana" or addr not in addresses:
+            continue
+        if num((p.get("liquidity") or {}).get("usd")) > num((by_token.get(addr, {}).get("liquidity") or {}).get("usd")):
+            by_token[addr] = p
+    qualified = []
+    for addr, p in by_token.items():
+        liq = num((p.get("liquidity") or {}).get("usd"))
+        cap = num(p.get("marketCap") or p.get("fdv"))
+        vol = num((p.get("volume") or {}).get("h1"))
+        tx = (p.get("txns") or {}).get("h1") or {}
+        buys, sells = num(tx.get("buys")), num(tx.get("sells"))
+        change = num((p.get("priceChange") or {}).get("h1"))
+        if not (liq >= 15000 and cap >= 20000 and vol >= 10000 and buys >= 20 and buys > sells and -10 <= change <= 80):
+            continue
+        score = round(min(liq / 50000, 2) * 15 + min(vol / max(liq, 1), 4) * 12 +
+                      min(buys / max(sells, 1), 3) * 10 + max(0, min(change, 40)) * 0.4, 1)
+        qualified.append({"address": addr, "symbol": (p.get("baseToken") or {}).get("symbol", "?"),
+                          "pool": p.get("pairAddress"), "dex": p.get("dexId"), "url": p.get("url"),
+                          "market_cap_usd": cap, "liquidity_usd": liq, "volume_h1_usd": vol,
+                          "buys_h1": int(buys), "sells_h1": int(sells),
+                          "price_change_h1_pct": change, "score": score})
+    qualified.sort(key=lambda c: c["score"], reverse=True)
+    top = qualified[:5]
+    for c in top:
+        c["signal"] = {"status": "NO TRADE", "reason": "OHLCV not checked"}
+        if not c["pool"]:
+            c["signal"]["reason"] = "Missing pool address"
+            continue
+        try:
+            m5 = candles(c["pool"], 5)
+            time.sleep(1.2)
+            m1 = candles(c["pool"], 1)
+            c["signal"] = setup(m5, m1)
+        except Exception as exc:
+            c["signal"] = {"status": "NO TRADE", "reason": "OHLCV unavailable or API error"}
+            errors.append(f"OHLCV {c['symbol']}: {type(exc).__name__}: {str(exc)[:100]}")
+        time.sleep(1.2)
+    state = {"checked_at_utc": now, "discovered_addresses": len(addresses),
+             "pairs": len(pairs), "qualified": len(qualified), "candidates": top,
+             "errors": errors, "limitations": [
+                 "Discovery uses partial, promotion-biased DEX Screener endpoints",
+                 "Holder concentration, token authorities, deployer and sellability NOT verified",
+                 "Signals are conditional educational setups; no wallet or execution",
+                 "M1/M5 candles may be unavailable; exact levels omitted when unverified"]}
+    STATE.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    lines = ["# JARVIS SOLANA TREND SCANNER v2", f"Проверка UTC: {now}",
+             f"Открити: {len(addresses)} | Двойки: {len(pairs)} | Филтър: {len(qualified)}", "",
+             "**Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**", ""]
+    for i, c in enumerate(top, 1):
+        s = c["signal"]
+        lines += [f"## {i}. {c['symbol']} — {s['status']}", f"Mint: `{c['address']}`",
+                  f"Pool: `{c['pool']}`",
+                  f"Liquidity: ${c['liquidity_usd']:,.0f} | Cap/FDV: ${c['market_cap_usd']:,.0f} | Volume 1h: ${c['volume_h1_usd']:,.0f}",
+                  f"Buys/sells 1h: {c['buys_h1']}/{c['sells_h1']} | Change 1h: {c['price_change_h1_pct']:+.1f}%",
+                  f"Status reason: {s['reason']}"]
+        if s["status"] == "CONDITIONAL ENTRY":
+            lines += [f"ENTRY: ${s['entry_usd']:.10g} | SL: ${s['stop_usd']:.10g}",
+                      f"TP1: ${s['tp1_usd']:.10g} (RR 1:2) | TP2: ${s['tp2_usd']:.10g} (1:3) | TP3: ${s['tp3_usd']:.10g} (1:5)",
+                      f"Risk distance: {s['risk_pct']:.2f}% | Last M1 closed candle: {s['m1_candle_utc']}"]
+        else:
+            lines.append("ENTRY / SL / TP: NOT CONFIRMED — no invented prices")
+        lines += [f"Source: {c['url']}", "Holder risk / authorities / sellability: UNKNOWN", ""]
+    if not top:
+        lines.append("Няма кандидати, минали базовите филтри.")
+    if errors:
+        lines += ["### Data errors", *[f"- {e}" for e in errors]]
+    REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("\n".join(lines))
+
+
+if __name__ == "__main__":
+    main()
