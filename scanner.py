@@ -119,17 +119,21 @@ def main():
     # Broaden discovery with GeckoTerminal's public Solana new-pool feed.
     # This is sampled discovery, NOT an exhaustive on-chain market index.
     gecko_pools = []
-    for page in (1, 2, 3):
+    gecko_sources = {"new_pools": 0, "trending_pools": 0}
+    for feed_name in ("new_pools", "trending_pools"):
+      for page in (1, 2, 3):
         try:
-            feed = fetch(GECKO + f"/networks/solana/new_pools?page={page}")
+            feed = fetch(GECKO + f"/networks/solana/{feed_name}?page={page}")
             for item in feed.get("data", []):
                 pool_id = item.get("id", "")
                 pool_address = pool_id.split("solana_", 1)[-1] if pool_id.startswith("solana_") else ""
                 if pool_address:
                     gecko_pools.append(pool_address)
+                    gecko_sources[feed_name] += 1
         except Exception as exc:
-            errors.append(f"Gecko new pools page {page}: {type(exc).__name__}")
+            errors.append(f"Gecko {feed_name} page {page}: {type(exc).__name__}")
         time.sleep(1.2)
+    gecko_pools = list(dict.fromkeys(gecko_pools))
     addresses = list(dict.fromkeys(addresses))[:180]
     pairs = []
     for i in range(0, len(addresses), 30):
@@ -165,6 +169,10 @@ def main():
             continue
         if num((p.get("liquidity") or {}).get("usd")) > num((by_token.get(addr, {}).get("liquidity") or {}).get("usd")):
             by_token[addr] = p
+    dex_coverage = {}
+    for p in by_token.values():
+        dex = p.get("dexId") or "unknown"
+        dex_coverage[dex] = dex_coverage.get(dex, 0) + 1
     qualified = []
     for addr, p in by_token.items():
         liq = num((p.get("liquidity") or {}).get("usd"))
@@ -199,9 +207,10 @@ def main():
             errors.append(f"OHLCV {c['symbol']}: {type(exc).__name__}: {str(exc)[:100]}")
         time.sleep(1.2)
     state = {"checked_at_utc": now, "discovered_addresses": len(addresses), "new_pools_sampled": len(gecko_pools),
+             "gecko_source_counts": gecko_sources, "dex_coverage": dex_coverage,
              "pairs": len(pairs), "qualified": len(qualified), "candidates": top,
              "errors": errors, "limitations": [
-                 "Discovery combines DEX Screener promotion feeds and GeckoTerminal sampled new pools; NOT whole-market coverage",
+                 "Discovery combines DEX Screener promotion feeds and GeckoTerminal sampled new/trending pools; NOT whole-market coverage",
                  "Holder concentration, token authorities, deployer and sellability NOT verified",
                  "Signals are conditional educational setups; no wallet or execution",
                  "M1/M5 candles may be unavailable; exact levels omitted when unverified"]}
@@ -209,10 +218,12 @@ def main():
     lines = ["# JARVIS SOLANA TREND SCANNER v2", f"Проверка UTC: {now}",
              f"Открити: {len(addresses)} | Нови пулове (извадка): {len(gecko_pools)} | Двойки: {len(pairs)} | Филтър: {len(qualified)}", "",
              "**Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**", ""]
+    lines += ["### DEX coverage (observed tokens, not complete market)",
+              *[f"- {dex}: {count}" for dex, count in sorted(dex_coverage.items(), key=lambda x: -x[1])], ""]
     for i, c in enumerate(top, 1):
         s = c["signal"]
         lines += [f"## {i}. {c['symbol']} — {s['status']}", f"Mint: `{c['address']}`",
-                  f"Pool: `{c['pool']}`",
+                  f"Pool: `{c['pool']}` | DEX: {c['dex']}",
                   f"Liquidity: ${c['liquidity_usd']:,.0f} | Cap/FDV: ${c['market_cap_usd']:,.0f} | Volume 1h: ${c['volume_h1_usd']:,.0f}",
                   f"Buys/sells 1h: {c['buys_h1']}/{c['sells_h1']} | Change 1h: {c['price_change_h1_pct']:+.1f}%",
                   f"Status reason: {s['reason']}"]
