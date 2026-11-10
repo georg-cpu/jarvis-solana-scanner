@@ -1,36 +1,72 @@
 {
-  "checked_at_utc": "2026-11-10T09:41:54+00:00",
-  "discovered_addresses": 135,
-  "new_pools_sampled": 99,
+  "checked_at_utc": "2026-11-10T17:19:56+00:00",
+  "discovered_addresses": 141,
+  "new_pools_sampled": 102,
   "gecko_source_counts": {
     "new_pools": 60,
-    "trending_pools": 40
+    "trending_pools": 60
   },
   "dex_coverage": {
-    "pumpswap": 44,
-    "raydium": 17,
-    "meteora": 9,
-    "orca": 1
+    "pumpswap": 53,
+    "raydium": 21,
+    "meteora": 7,
+    "orca": 2
   },
-  "pairs": 145,
-  "qualified": 10,
+  "pairs": 149,
+  "qualified": 19,
   "candidates": [
     {
-      "address": "Dz9mQ9NzkBcCsuGPFJ3r1bS4wgqKMHBPiVuniW8Mbonk",
-      "symbol": "USELESS",
-      "pool": "Q2sPHPdUWFMg7M7wwrQKLrn619cAucfRsmhVJffodSp",
-      "dex": "raydium",
-      "url": "https://dexscreener.com/solana/q2sphpduwfmg7m7wwrqklrn619caucfrsmhvjffodsp",
-      "market_cap_usd": 135893311.0,
-      "liquidity_usd": 3470711.85,
-      "volume_h1_usd": 13899.96,
-      "buys_h1": 58,
-      "sells_h1": 21,
-      "price_change_h1_pct": 0.31,
-      "score": 57.8,
+      "address": "4HLzQoz5KkhXFrwKfX1Jb2iEFBd9QseFAEJvjqDdpump",
+      "symbol": "DAKITTY",
+      "pool": "EmuspofP6hCAVZxeDujtF6Wk2ZrkUzeJk9bgoam2oH9b",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/emuspofp6hcavzxedujtf6wk2zrkuzejk9bgoam2oh9b",
+      "market_cap_usd": 176434.0,
+      "liquidity_usd": 31242.12,
+      "volume_h1_usd": 161295.06,
+      "buys_h1": 9468,
+      "sells_h1": 1898,
+      "price_change_h1_pct": 45.55,
+      "score": 103.4,
       "signal": {
         "status": "NO TRADE",
-        "reason": "Stale OHLCV data"
+        "reason": "OHLCV unavailable or API error"
+      }
+    },
+    {
+      "address": "HAsTKXYvv65zM7J6Cu5o5PcZsiKMQYo5oz4WPjgqwP6k",
+      "symbol": "jeff",
+      "pool": "JCXWfcZGjgJC8NZa5Qb6JP3cgvqW4vGUg4Tqj87G5ZnY",
+      "dex": "raydium",
+      "url": "https://dexscreener.com/solana/jcxwfczgjgjc8nza5qb6jp3cgvqw4vgug4tqj87g5zny",
+      "market_cap_usd": 1363872.0,
+      "liquidity_usd": 100060.25,
+      "volume_h1_usd": 23740.17,
+      "buys_h1": 3672,
+      "sells_h1": 992,
+      "price_change_h1_pct": 12.08,
+      "score": 67.7,
+      "signal": {
+        "status": "NO TRADE",
+        "reason": "OHLCV unavailable or API error"
+      }
+    },
+    {
+      "address": "nxPqZ4F7ux8Vph5NFu25rEP6Kx9Gr1U6Fmj36Rjpump",
+      "symbol": "Dacity",
+      "pool": "G2UuRbmVDzDFP4qyoBJrSKBXSi7d6V4bPP9tHPs36y4b",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/g2uurbmvdzdfp4qyobjrskbxsi7d6v4bpp9thps36y4b",
+      "market_cap_usd": 7446046.0,
+      "liquidity_usd": 432580.91,
+      "volume_h1_usd": 216519.07,
+      "buys_h1": 975,
+      "sells_h1": 557,
+      "price_change_h1_pct": 7.45,
+      "score": 56.5,
+      "signal": {
+        "status": "NO TRADE",
+        "reason": "OHLCV unavailable or API error"
       }
     },
     {
@@ -39,67 +75,31 @@
       "pool": "HMzvsEEmtzHhvZNw9uwbaG85HCTmFnkbhzUx16cy7ca3",
       "dex": "pumpswap",
       "url": "https://dexscreener.com/solana/hmzvseemtzhhvznw9uwbag85hctmfnkbhzux16cy7ca3",
-      "market_cap_usd": 28489505.0,
-      "liquidity_usd": 1801582.12,
-      "volume_h1_usd": 41457.93,
-      "buys_h1": 112,
-      "sells_h1": 45,
-      "price_change_h1_pct": -1.07,
-      "score": 55.2,
+      "market_cap_usd": 25518718.0,
+      "liquidity_usd": 1673977.04,
+      "volume_h1_usd": 74349.24,
+      "buys_h1": 410,
+      "sells_h1": 169,
+      "price_change_h1_pct": -1.94,
+      "score": 54.8,
       "signal": {
         "status": "NO TRADE",
         "reason": "OHLCV unavailable or API error"
       }
     },
     {
-      "address": "5wsjHxT5nW5jQuVupXUNnYszF3WoWCfGGk9LMcsCJzY8",
-      "symbol": "STANK",
-      "pool": "6hYFMyE2BYYScTErqUeCKhihQ5X9j2WD2z9waTdwy38N",
-      "dex": "raydium",
-      "url": "https://dexscreener.com/solana/6hyfmye2byyscterqueckhihq5x9j2wd2z9watdwy38n",
-      "market_cap_usd": 4028701.0,
-      "liquidity_usd": 118226.56,
-      "volume_h1_usd": 20778.46,
-      "buys_h1": 146,
-      "sells_h1": 120,
-      "price_change_h1_pct": 10.08,
-      "score": 48.3,
-      "signal": {
-        "status": "NO TRADE",
-        "reason": "OHLCV unavailable or API error"
-      }
-    },
-    {
-      "address": "2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM",
-      "symbol": "CLAUDIA",
-      "pool": "Fe7bpDYCs74GqiCUF14HwgUMToPKV1d9mDYVX5BTohFr",
+      "address": "CTPoyCwkjMvoJwU4xvZZqoD8tiYk6yDchySiN5gGpump",
+      "symbol": "fone",
+      "pool": "3dcwhqJp6JBTJPq8ga335HWgSQVS7uQmdmeX7iGjMNpj",
       "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/fe7bpdycs74gqicuf14hwgumtopkv1d9mdyvx5btohfr",
-      "market_cap_usd": 6572436.0,
-      "liquidity_usd": 376635.07,
-      "volume_h1_usd": 22583.01,
-      "buys_h1": 138,
-      "sells_h1": 80,
-      "price_change_h1_pct": -3.22,
-      "score": 48.0,
-      "signal": {
-        "status": "NO TRADE",
-        "reason": "OHLCV unavailable or API error"
-      }
-    },
-    {
-      "address": "F22QdNn7VYrtTgYDHEYcqQKVtDH8msh2xs6tnGxepump",
-      "symbol": "BORLY",
-      "pool": "7XwNpcwT4uPJ2hYuFf4czvmmsvVWs13k1W8iP6y4o5Zq",
-      "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/7xwnpcwt4upj2hyuff4czvmmsvvws13k1w8ip6y4o5zq",
-      "market_cap_usd": 1370952.0,
-      "liquidity_usd": 94859.14,
-      "volume_h1_usd": 60881.88,
-      "buys_h1": 5569,
-      "sells_h1": 4709,
-      "price_change_h1_pct": -0.11,
-      "score": 48.0,
+      "url": "https://dexscreener.com/solana/3dcwhqjp6jbtjpq8ga335hwgsqvs7uqmdmex7igjmnpj",
+      "market_cap_usd": 1273062.0,
+      "liquidity_usd": 244607.06,
+      "volume_h1_usd": 16643.8,
+      "buys_h1": 72,
+      "sells_h1": 30,
+      "price_change_h1_pct": -7.76,
+      "score": 54.8,
       "signal": {
         "status": "NO TRADE",
         "reason": "OHLCV unavailable or API error"
@@ -107,11 +107,11 @@
     }
   ],
   "errors": [
-    "Gecko trending_pools page 3: HTTPError",
+    "OHLCV DAKITTY: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV jeff: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV Dacity: HTTPError: HTTP Error 429: Too Many Requests",
     "OHLCV CATE: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV STANK: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV CLAUDIA: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV BORLY: HTTPError: HTTP Error 429: Too Many Requests"
+    "OHLCV fone: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "limitations": [
     "Discovery combines DEX Screener promotion feeds and GeckoTerminal sampled new/trending pools; NOT whole-market coverage",
