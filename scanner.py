@@ -238,6 +238,7 @@ def main():
         lines.append("Няма кандидати, минали базовите филтри.")
     if errors:
         lines += ["### Data errors", *[f"- {e}" for e in errors]]
+    lines.extend(["", "## ☕ Почерпи ме с кафе\n\nДоброволна подкрепа с native SOL · Solana mainnet\n\n`CYmGyR3E2rEheJiG48t9LNPjCU9dxGG6sBeUh9mJB9Fy`"])
     REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
 

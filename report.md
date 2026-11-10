@@ -66,3 +66,9 @@ Holder risk / authorities / sellability: UNKNOWN
 - OHLCV STANK: HTTPError: HTTP Error 429: Too Many Requests
 - OHLCV CLAUDIA: HTTPError: HTTP Error 429: Too Many Requests
 - OHLCV BORLY: HTTPError: HTTP Error 429: Too Many Requests
+
+## ☕ Почерпи ме с кафе
+
+Доброволна подкрепа с native SOL · Solana mainnet
+
+`CYmGyR3E2rEheJiG48t9LNPjCU9dxGG6sBeUh9mJB9Fy`

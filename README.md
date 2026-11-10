@@ -1,20 +1,41 @@
 # JARVIS Solana Trend Scanner v1
 
-Scans public DEX Screener discovery endpoints every 15 minutes (best effort) using GitHub Actions. No wallet, private keys, trade execution or AI costs.
+Python скенер за Solana пулове. GitHub Actions обновява отчета по график на 15 минути. Отделен експериментален слушател записва събития от Pump.fun в локална SQLite база.
 
-## Setup
-1. Create a GitHub repository (public is simplest for free Actions use).
-2. Upload `scanner.py`, `README.md`, and `.github/workflows/scan.yml` preserving the folder structure. Do not upload secrets.
-3. Under **Settings > Actions > General > Workflow permissions**, allow **Read and write permissions** if available. Alternatively configure a fine-grained token securely; do not put it in the repo.
-4. Open **Actions > JARVIS Solana Scanner > Run workflow** for the first run.
-5. Read `report.md` and `state.json` in your repository. GitHub scheduled runs can be delayed or skipped, and scheduled workflows on public repos may be disabled after 60 days of inactivity.
+[Изтегли проекта като ZIP](https://github.com/georg-cpu/jarvis-solana-scanner/archive/refs/heads/main.zip) · [Виж изходния код](https://github.com/georg-cpu/jarvis-solana-scanner/tree/main)
 
-## Limits
-- This is **not full-market coverage**. The DEX Screener latest-profile and boost feeds are a partial, promotion-biased sample.
-- Scoring is a transparent heuristic, not a prediction. No holder concentration, mint/freeze authority, deployer, liquidity lock or honeypot/sellability validation is performed.
-- Every result is WATCH/NO TRADE. No entry/SL/TP levels without validated market structure and safety checks.
-- GitHub commit permissions may be restricted by organizational policy; the scan may succeed but report push fail.
-- API errors are listed in the report; the workflow should be monitored.
-- To integrate Telegram/Discord alerts, add a separately reviewed notifier and store credentials in GitHub Actions Secrets. ChatGPT automations cannot be triggered directly by this workflow without an additional supported integration.
+## ☕ Почерпи ме с кафе
 
-Sources: https://docs.dexscreener.com/api/reference and https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
+Доброволна подкрепа с **native SOL** в мрежата **Solana mainnet**. Копирай публичния адрес в своя портфейл.
+
+`CYmGyR3E2rEheJiG48t9LNPjCU9dxGG6sBeUh9mJB9Fy`
+
+[Виж адреса в Solana Explorer](https://explorer.solana.com/address/CYmGyR3E2rEheJiG48t9LNPjCU9dxGG6sBeUh9mJB9Fy)
+
+## Стартиране
+
+За локален отчет изпълни `python scanner.py` от корена на проекта с Python 3.12. За автоматични обновявания активирай Actions в свое копие на хранилището и разреши запис на резултатите. Стартирай ръчно от [JARVIS Solana Scanner](https://github.com/georg-cpu/jarvis-solana-scanner/actions/workflows/scan.yml). Графикът е на минути 07, 22, 37 и 52 от часа и може да има забавяне.
+
+## Четене на резултатите
+
+[Последният отчет](report.md) показва откритите кандидати, ликвидност и наличните данни за обем. При изпълнени правила скенерът може да покаже условен вход, стоп и цели въз основа на затворени свещи. Покритието на публичните източници е частично. Проверките за концентрация на притежателите и възможност за продажба остават неизвестни. За непрекъснато наблюдение виж [инструкциите за Pump.fun слушателя](PUMP_LISTENER.md).
+
+## Файлове в проекта
+
+| Файл | Предназначение |
+|---|---|
+| [.github/workflows/scan.yml](./.github/workflows/scan.yml) | График, изпълнение и запис на резултатите |
+| [PUMP_LISTENER.md](./PUMP_LISTENER.md) | Настройка и ограничения на слушателя |
+| [README.md](./README.md) | Описание, стартиране и навигация |
+| [jarvis-solana-scanner.zip](./jarvis-solana-scanner.zip) | Архив, съхранен в хранилището |
+| [pump_listener.py](./pump_listener.py) | WebSocket слушател за събития от Pump.fun |
+| [report.md](./report.md) | Последен записан отчет |
+| [requirements-listener.txt](./requirements-listener.txt) | Python зависимости за слушателя |
+| [scanner.py](./scanner.py) | Откриване, оценка на кандидати и генериране на отчет |
+| [state.json](./state.json) | Запазено състояние на скенера |
+
+## Други публични проекти на JARVIS
+
+- [jarvis-command-center](https://github.com/georg-cpu/jarvis-command-center)
+- [jarvis-solana-intelligence](https://github.com/georg-cpu/jarvis-solana-intelligence)
+- [jarvis-solana-intelligence1](https://github.com/georg-cpu/jarvis-solana-intelligence1)
