@@ -1,62 +1,54 @@
 {
-  "checked_at_utc": "2026-11-11T02:13:24+00:00",
-  "discovered_addresses": 148,
-  "new_pools_sampled": 104,
+  "checked_at_utc": "2026-11-11T09:37:24+00:00",
+  "discovered_addresses": 113,
+  "new_pools_sampled": 72,
   "gecko_source_counts": {
     "new_pools": 60,
-    "trending_pools": 60
+    "trending_pools": 40
   },
   "dex_coverage": {
-    "pumpswap": 61,
-    "raydium": 19,
-    "meteora": 10,
-    "orca": 3
+    "pumpswap": 53,
+    "raydium": 9,
+    "meteora": 5,
+    "orca": 1
   },
-  "pairs": 158,
-  "qualified": 24,
+  "pairs": 121,
+  "qualified": 15,
   "candidates": [
     {
-      "address": "4CxjZyMNoF1p6eXHXHv1TWpS2X47CuUmLwtGe18spump",
-      "symbol": "mihao",
-      "pool": "Ho1aSG6WGH1FfXdEHrK2f4Ggt1Hoxo9s5jcLMDqeyeBz",
+      "address": "8yLBuP74RnFmjSRS8BGFebvyoTo8uiEjPB71h3Zgpump",
+      "symbol": "NIHAO",
+      "pool": "4rsLuj8sBFFMwM4AK6p4R5RbZ7y2m9CGrefxVb29JbgN",
       "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/ho1asg6wgh1ffxdehrk2f4ggt1hoxo9s5jclmdqeyebz",
-      "market_cap_usd": 17456567.0,
-      "liquidity_usd": 418883.95,
-      "volume_h1_usd": 2192580.22,
-      "buys_h1": 11869,
-      "sells_h1": 10065,
-      "price_change_h1_pct": 47.52,
-      "score": 105.8,
+      "url": "https://dexscreener.com/solana/4rsluj8sbffmwm4ak6p4r5rbz7y2m9cgrefxvb29jbgn",
+      "market_cap_usd": 5508603.0,
+      "liquidity_usd": 191410.01,
+      "volume_h1_usd": 551043.97,
+      "buys_h1": 9742,
+      "sells_h1": 4846,
+      "price_change_h1_pct": -4.84,
+      "score": 84.6,
       "signal": {
-        "status": "WAIT",
-        "reason": "M5 breakout + volume + M1 confirmation not all met",
-        "m5_breakout": false,
-        "volume_confirmed": false,
-        "m1_confirmed": false,
-        "trend_confirmed": true
+        "status": "NO TRADE",
+        "reason": "OHLCV unavailable or API error"
       }
     },
     {
-      "address": "4iJ7xEQrUvVUQH9KVStvw3FaY2PZDd7RtR4L9zx2pump",
-      "symbol": "HOLD",
-      "pool": "GUsid5mPW6KiExjQDDggoTHrFv4ecGqqAgYwiHa4Ujbb",
+      "address": "BLVpn8ofkjnAzpWGaVpspZ5bHTeXDbXFgX4vn3fkpump",
+      "symbol": "woohao",
+      "pool": "D5YSMfk2Rzjm2SW4d6ZX9ge6jnNfMhpHB6JpF6NDu7XL",
       "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/gusid5mpw6kiexjqddggothrfv4ecgqqagywiha4ujbb",
-      "market_cap_usd": 625456.0,
-      "liquidity_usd": 68422.13,
-      "volume_h1_usd": 460211.26,
-      "buys_h1": 4628,
-      "sells_h1": 3398,
-      "price_change_h1_pct": 10.97,
-      "score": 86.5,
+      "url": "https://dexscreener.com/solana/d5ysmfk2rzjm2sw4d6zx9ge6jnnfmhphb6jpf6ndu7xl",
+      "market_cap_usd": 51914.0,
+      "liquidity_usd": 16173.44,
+      "volume_h1_usd": 81607.1,
+      "buys_h1": 1478,
+      "sells_h1": 1179,
+      "price_change_h1_pct": 25.32,
+      "score": 75.5,
       "signal": {
-        "status": "WAIT",
-        "reason": "M5 breakout + volume + M1 confirmation not all met",
-        "m5_breakout": false,
-        "volume_confirmed": false,
-        "m1_confirmed": false,
-        "trend_confirmed": true
+        "status": "NO TRADE",
+        "reason": "OHLCV unavailable or API error"
       }
     },
     {
@@ -65,31 +57,13 @@
       "pool": "GSucfCJDqx8pShmYr2KokoAbjUHjq6ivvAfkmi5A8KSB",
       "dex": "pumpswap",
       "url": "https://dexscreener.com/solana/gsucfcjdqx8pshmyr2kokoabjuhjq6ivvafkmi5a8ksb",
-      "market_cap_usd": 381157.0,
-      "liquidity_usd": 47213.35,
-      "volume_h1_usd": 85997.08,
-      "buys_h1": 2669,
-      "sells_h1": 573,
-      "price_change_h1_pct": 52.11,
-      "score": 82.0,
-      "signal": {
-        "status": "NO TRADE",
-        "reason": "Insufficient closed M5/M1 candles"
-      }
-    },
-    {
-      "address": "8yLBuP74RnFmjSRS8BGFebvyoTo8uiEjPB71h3Zgpump",
-      "symbol": "NIHAO",
-      "pool": "4rsLuj8sBFFMwM4AK6p4R5RbZ7y2m9CGrefxVb29JbgN",
-      "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/4rsluj8sbffmwm4ak6p4r5rbz7y2m9cgrefxvb29jbgn",
-      "market_cap_usd": 4326420.0,
-      "liquidity_usd": 167186.97,
-      "volume_h1_usd": 401327.52,
-      "buys_h1": 10686,
-      "sells_h1": 6514,
-      "price_change_h1_pct": 3.05,
-      "score": 76.4,
+      "market_cap_usd": 693337.0,
+      "liquidity_usd": 65214.12,
+      "volume_h1_usd": 53224.0,
+      "buys_h1": 1507,
+      "sells_h1": 648,
+      "price_change_h1_pct": 19.38,
+      "score": 60.4,
       "signal": {
         "status": "NO TRADE",
         "reason": "OHLCV unavailable or API error"
@@ -101,13 +75,31 @@
       "pool": "89RSdzZ3WNCeBoJfruvi6oMxBDYtNreLFVQcVq1oPhNQ",
       "dex": "pumpswap",
       "url": "https://dexscreener.com/solana/89rsdzz3wncebojfruvi6omxbdytnrelfvqcvq1ophnq",
-      "market_cap_usd": 2071558.0,
-      "liquidity_usd": 113756.48,
-      "volume_h1_usd": 111117.74,
-      "buys_h1": 6801,
-      "sells_h1": 4254,
-      "price_change_h1_pct": 22.73,
-      "score": 66.8,
+      "market_cap_usd": 2415184.0,
+      "liquidity_usd": 124348.24,
+      "volume_h1_usd": 78892.89,
+      "buys_h1": 6699,
+      "sells_h1": 3704,
+      "price_change_h1_pct": 6.77,
+      "score": 58.4,
+      "signal": {
+        "status": "NO TRADE",
+        "reason": "OHLCV unavailable or API error"
+      }
+    },
+    {
+      "address": "4CxjZyMNoF1p6eXHXHv1TWpS2X47CuUmLwtGe18spump",
+      "symbol": "mihao",
+      "pool": "Ho1aSG6WGH1FfXdEHrK2f4Ggt1Hoxo9s5jcLMDqeyeBz",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/ho1asg6wgh1ffxdehrk2f4ggt1hoxo9s5jclmdqeyebz",
+      "market_cap_usd": 13091030.0,
+      "liquidity_usd": 373849.33,
+      "volume_h1_usd": 347627.21,
+      "buys_h1": 1649,
+      "sells_h1": 1314,
+      "price_change_h1_pct": -5.3,
+      "score": 53.7,
       "signal": {
         "status": "NO TRADE",
         "reason": "OHLCV unavailable or API error"
@@ -115,8 +107,12 @@
     }
   ],
   "errors": [
+    "Gecko trending_pools page 3: HTTPError",
     "OHLCV NIHAO: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV DACITY: HTTPError: HTTP Error 429: Too Many Requests"
+    "OHLCV woohao: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV 咪好: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV DACITY: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV mihao: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "limitations": [
     "Discovery combines DEX Screener promotion feeds and GeckoTerminal sampled new/trending pools; NOT whole-market coverage",
