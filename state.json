@@ -1,69 +1,91 @@
 {
-  "checked_at_utc": "2026-11-12T13:12:44+00:00",
-  "discovered_addresses": 115,
-  "new_pools_sampled": 80,
+  "checked_at_utc": "2026-11-12T20:57:12+00:00",
+  "discovered_addresses": 162,
+  "new_pools_sampled": 120,
   "gecko_source_counts": {
     "new_pools": 60,
-    "trending_pools": 40
+    "trending_pools": 60
   },
   "dex_coverage": {
-    "pumpswap": 49,
-    "raydium": 8,
-    "meteora": 4,
-    "orca": 1
+    "pumpswap": 62,
+    "meteora": 10,
+    "raydium": 13,
+    "orca": 3
   },
-  "pairs": 118,
-  "qualified": 10,
+  "pairs": 175,
+  "qualified": 18,
   "candidates": [
     {
-      "address": "oPpPbTMMAD4hSYaHDXjeEeE6W8yX7FjLNZHymqPpump",
-      "symbol": "GTA Six",
-      "pool": "AV2bYMmsfsFnvtGDMKZGtnsg9e8MzCoWsmm6iHSnkkLk",
+      "address": "D1M4NpGZXBi9qE4GcQctRXwa2nZjqdwAaLCGrbxFwU6d",
+      "symbol": "LONG",
+      "pool": "NU1pSpzEzz3bzgzU9YeZq6QL5zRB5itXc6LA9shmKhu",
       "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/av2bymmsfsfnvtgdmkzgtnsg9e8mzcowsmm6ihsnkklk",
-      "market_cap_usd": 51565.0,
-      "liquidity_usd": 16173.94,
-      "volume_h1_usd": 160030.54,
-      "buys_h1": 14310,
-      "sells_h1": 8462,
-      "price_change_h1_pct": 54.32,
-      "score": 85.8,
+      "url": "https://dexscreener.com/solana/nu1pspzezz3bzgzu9yezq6ql5zrb5itxc6la9shmkhu",
+      "market_cap_usd": 60898.0,
+      "liquidity_usd": 19038.02,
+      "volume_h1_usd": 89977.51,
+      "buys_h1": 417,
+      "sells_h1": 346,
+      "price_change_h1_pct": 59.55,
+      "score": 81.8,
       "signal": {
         "status": "NO TRADE",
         "reason": "Insufficient closed M5/M1 candles"
       }
     },
     {
-      "address": "7yLCJpWQvE2bnX3JZGbmmKrCkCSrSGbqTmgA8tMdpump",
-      "symbol": "FLC",
-      "pool": "HGgP8yXg71PdRxTvA53Q7mKdzx9zSTUW8E2roC28WtZa",
+      "address": "KMifrkYmDdAKtVXAVBEPEQxJ7qP2iLgUcfZjUZipump",
+      "symbol": "RAMBO",
+      "pool": "Gz15vwSPY9KFYNkrMPkoKp2h9yygVBovoXJsGwSJcvFk",
       "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/hggp8yxg71pdrxtva53q7mkdzx9zstuw8e2roc28wtza",
-      "market_cap_usd": 264016.0,
-      "liquidity_usd": 43833.41,
-      "volume_h1_usd": 154450.16,
-      "buys_h1": 1735,
-      "sells_h1": 1580,
-      "price_change_h1_pct": 20.58,
-      "score": 74.6,
+      "url": "https://dexscreener.com/solana/gz15vwspy9kfynkrmpkokp2h9yygvbovoxjsgwsjcvfk",
+      "market_cap_usd": 11878257.0,
+      "liquidity_usd": 300896.69,
+      "volume_h1_usd": 18048.7,
+      "buys_h1": 157,
+      "sells_h1": 51,
+      "price_change_h1_pct": -1.35,
+      "score": 60.7,
+      "signal": {
+        "status": "WAIT",
+        "reason": "M5 breakout + volume + M1 confirmation not all met",
+        "m5_breakout": false,
+        "volume_confirmed": false,
+        "m1_confirmed": false,
+        "trend_confirmed": false
+      }
+    },
+    {
+      "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+      "symbol": "Fartcoin ",
+      "pool": "Bzc9NZfMqkXR6fz1DBph7BDf9BroyEf6pnzESP7v5iiw",
+      "dex": "raydium",
+      "url": "https://dexscreener.com/solana/bzc9nzfmqkxr6fz1dbph7bdf9broyef6pnzesp7v5iiw",
+      "market_cap_usd": 108136511.0,
+      "liquidity_usd": 5752937.25,
+      "volume_h1_usd": 18297.55,
+      "buys_h1": 67,
+      "sells_h1": 18,
+      "price_change_h1_pct": 0.55,
+      "score": 60.3,
       "signal": {
         "status": "NO TRADE",
         "reason": "OHLCV unavailable or API error"
       }
     },
     {
-      "address": "77HqxiDCgYfXUsDXDD6YVefPhTTz1Z2n8jX4gTxipump",
-      "symbol": "updog",
-      "pool": "GeQmNaXBb86uLLQr3EAEwoukxVqSh4qTm3uXvb3G7Mne",
+      "address": "5qaP7oKUqKffwwo5DaEqDoTtsBLMpdbQTxEkCDaTpump",
+      "symbol": "Max",
+      "pool": "Eoe22HdCa9rhtBwKL6nNZmZxfuzF35xkxobcvfaF1vWQ",
       "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/geqmnaxbb86ullqr3eaewoukxvqsh4qtm3uxvb3g7mne",
-      "market_cap_usd": 1076358.0,
-      "liquidity_usd": 81060.22,
-      "volume_h1_usd": 124470.19,
-      "buys_h1": 692,
-      "sells_h1": 564,
-      "price_change_h1_pct": 44.42,
-      "score": 71.0,
+      "url": "https://dexscreener.com/solana/eoe22hdca9rhtbwkl6nnzmzxfuzf35xkxobcvfaf1vwq",
+      "market_cap_usd": 2683010.0,
+      "liquidity_usd": 214206.03,
+      "volume_h1_usd": 275423.45,
+      "buys_h1": 1848,
+      "sells_h1": 1445,
+      "price_change_h1_pct": 4.4,
+      "score": 60.0,
       "signal": {
         "status": "NO TRADE",
         "reason": "OHLCV unavailable or API error"
@@ -75,31 +97,13 @@
       "pool": "5E3dXLXGwmTDCokA51WYYaKttjFZBwqCoyUHBUi5gt2m",
       "dex": "pumpswap",
       "url": "https://dexscreener.com/solana/5e3dxlxgwmtdcoka51wyyakttjfzbwqcoyuhbui5gt2m",
-      "market_cap_usd": 5760071.0,
-      "liquidity_usd": 254261.26,
-      "volume_h1_usd": 59055.56,
-      "buys_h1": 1505,
-      "sells_h1": 743,
-      "price_change_h1_pct": -1.73,
-      "score": 53.0,
-      "signal": {
-        "status": "NO TRADE",
-        "reason": "OHLCV unavailable or API error"
-      }
-    },
-    {
-      "address": "2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM",
-      "symbol": "CLAUDIA",
-      "pool": "Fe7bpDYCs74GqiCUF14HwgUMToPKV1d9mDYVX5BTohFr",
-      "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/fe7bpdycs74gqicuf14hwgumtopkv1d9mdyvx5btohfr",
-      "market_cap_usd": 4185628.0,
-      "liquidity_usd": 296729.91,
-      "volume_h1_usd": 19557.1,
-      "buys_h1": 163,
-      "sells_h1": 77,
-      "price_change_h1_pct": -5.33,
-      "score": 52.0,
+      "market_cap_usd": 4802410.0,
+      "liquidity_usd": 233622.64,
+      "volume_h1_usd": 60516.39,
+      "buys_h1": 2710,
+      "sells_h1": 1348,
+      "price_change_h1_pct": -1.01,
+      "score": 53.2,
       "signal": {
         "status": "NO TRADE",
         "reason": "OHLCV unavailable or API error"
@@ -107,11 +111,9 @@
     }
   ],
   "errors": [
-    "Gecko trending_pools page 3: HTTPError",
-    "OHLCV FLC: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV updog: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV GATO: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV CLAUDIA: HTTPError: HTTP Error 429: Too Many Requests"
+    "OHLCV Fartcoin : HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV Max: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV GATO: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "limitations": [
     "Discovery combines DEX Screener promotion feeds and GeckoTerminal sampled new/trending pools; NOT whole-market coverage",
