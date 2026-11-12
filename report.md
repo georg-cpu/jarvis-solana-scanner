@@ -1,72 +1,71 @@
 # JARVIS SOLANA TREND SCANNER v2
-Проверка UTC: 2026-11-12T04:24:14+00:00
-Открити: 145 | Нови пулове (извадка): 96 | Двойки: 155 | Филтър: 14
+Проверка UTC: 2026-11-12T13:12:44+00:00
+Открити: 115 | Нови пулове (извадка): 80 | Двойки: 118 | Филтър: 10
 
 **Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**
 
 ### DEX coverage (observed tokens, not complete market)
-- pumpswap: 70
-- raydium: 9
-- meteora: 7
+- pumpswap: 49
+- raydium: 8
+- meteora: 4
 - orca: 1
 
-## 1. FORKYU — NO TRADE
-Mint: `8uLNcrFKzBJYKg8ZU1E8drWnA5o2vV82m6BsgYw9pump`
-Pool: `H7XnTo8MejE7QG1Uf2Sm2YPfZ8kck64S49eXJxGxV6Dq` | DEX: pumpswap
-Liquidity: $48,677 | Cap/FDV: $391,966 | Volume 1h: $132,233
-Buys/sells 1h: 1143/990 | Change 1h: +77.0%
-Status reason: OHLCV unavailable or API error
+## 1. GTA Six — NO TRADE
+Mint: `oPpPbTMMAD4hSYaHDXjeEeE6W8yX7FjLNZHymqPpump`
+Pool: `AV2bYMmsfsFnvtGDMKZGtnsg9e8MzCoWsmm6iHSnkkLk` | DEX: pumpswap
+Liquidity: $16,174 | Cap/FDV: $51,565 | Volume 1h: $160,031
+Buys/sells 1h: 14310/8462 | Change 1h: +54.3%
+Status reason: Insufficient closed M5/M1 candles
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/h7xnto8meje7qg1uf2sm2ypfz8kck64s49exjxgxv6dq
+Source: https://dexscreener.com/solana/av2bymmsfsfnvtgdmkzgtnsg9e8mzcowsmm6ihsnkklk
 Holder risk / authorities / sellability: UNKNOWN
 
-## 2. mihao — NO TRADE
-Mint: `4CxjZyMNoF1p6eXHXHv1TWpS2X47CuUmLwtGe18spump`
-Pool: `Ho1aSG6WGH1FfXdEHrK2f4Ggt1Hoxo9s5jcLMDqeyeBz` | DEX: pumpswap
-Liquidity: $498,661 | Cap/FDV: $20,056,327 | Volume 1h: $1,128,565
-Buys/sells 1h: 6920/6069 | Change 1h: -3.0%
+## 2. FLC — NO TRADE
+Mint: `7yLCJpWQvE2bnX3JZGbmmKrCkCSrSGbqTmgA8tMdpump`
+Pool: `HGgP8yXg71PdRxTvA53Q7mKdzx9zSTUW8E2roC28WtZa` | DEX: pumpswap
+Liquidity: $43,833 | Cap/FDV: $264,016 | Volume 1h: $154,450
+Buys/sells 1h: 1735/1580 | Change 1h: +20.6%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/ho1asg6wgh1ffxdehrk2f4ggt1hoxo9s5jclmdqeyebz
+Source: https://dexscreener.com/solana/hggp8yxg71pdrxtva53q7mkdzx9zstuw8e2roc28wtza
 Holder risk / authorities / sellability: UNKNOWN
 
-## 3. Dacity — NO TRADE
-Mint: `Efe5mznBBUAP12kUE97HwoScAkHHSmNqnYJ9Ro249b2g`
-Pool: `2gxuUmUfvuQ7roxKhCgF9pCujuxjvLCFVtNd6me1wE2b` | DEX: pumpswap
-Liquidity: $234,218 | Cap/FDV: $634,566 | Volume 1h: $16,450
-Buys/sells 1h: 40/9 | Change 1h: +15.8%
+## 3. updog — NO TRADE
+Mint: `77HqxiDCgYfXUsDXDD6YVefPhTTz1Z2n8jX4gTxipump`
+Pool: `GeQmNaXBb86uLLQr3EAEwoukxVqSh4qTm3uXvb3G7Mne` | DEX: pumpswap
+Liquidity: $81,060 | Cap/FDV: $1,076,358 | Volume 1h: $124,470
+Buys/sells 1h: 692/564 | Change 1h: +44.4%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/2gxuumufvuq7roxkhcgf9pcujuxjvlcfvtnd6me1we2b
+Source: https://dexscreener.com/solana/geqmnaxbb86ullqr3eaewoukxvqsh4qtm3uxvb3g7mne
 Holder risk / authorities / sellability: UNKNOWN
 
-## 4. Max — NO TRADE
-Mint: `5qaP7oKUqKffwwo5DaEqDoTtsBLMpdbQTxEkCDaTpump`
-Pool: `Eoe22HdCa9rhtBwKL6nNZmZxfuzF35xkxobcvfaF1vWQ` | DEX: pumpswap
-Liquidity: $165,919 | Cap/FDV: $1,706,329 | Volume 1h: $333,779
-Buys/sells 1h: 2106/1886 | Change 1h: +2.3%
+## 4. GATO — NO TRADE
+Mint: `HsprHxBRgiVaQdRf3TnKNuZZtaX9JUSPgMFdAkk6pump`
+Pool: `5E3dXLXGwmTDCokA51WYYaKttjFZBwqCoyUHBUi5gt2m` | DEX: pumpswap
+Liquidity: $254,261 | Cap/FDV: $5,760,071 | Volume 1h: $59,056
+Buys/sells 1h: 1505/743 | Change 1h: -1.7%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/eoe22hdca9rhtbwkl6nnzmzxfuzf35xkxobcvfaf1vwq
+Source: https://dexscreener.com/solana/5e3dxlxgwmtdcoka51wyyakttjfzbwqcoyuhbui5gt2m
 Holder risk / authorities / sellability: UNKNOWN
 
-## 5. STONK — NO TRADE
-Mint: `6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx`
-Pool: `zxTpi4BtaWX3mgdAPoezkMD1hxx8CdeCfrqXMWvSCLX` | DEX: meteora
-Liquidity: $1,984,027 | Cap/FDV: $43,607,693 | Volume 1h: $240,878
-Buys/sells 1h: 934/191 | Change 1h: -4.8%
+## 5. CLAUDIA — NO TRADE
+Mint: `2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM`
+Pool: `Fe7bpDYCs74GqiCUF14HwgUMToPKV1d9mDYVX5BTohFr` | DEX: pumpswap
+Liquidity: $296,730 | Cap/FDV: $4,185,628 | Volume 1h: $19,557
+Buys/sells 1h: 163/77 | Change 1h: -5.3%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/zxtpi4btawx3mgdapoezkmd1hxx8cdecfrqxmwvsclx
+Source: https://dexscreener.com/solana/fe7bpdycs74gqicuf14hwgumtopkv1d9mdyvx5btohfr
 Holder risk / authorities / sellability: UNKNOWN
 
 ### Data errors
 - Gecko trending_pools page 3: HTTPError
-- OHLCV FORKYU: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV mihao: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV Dacity: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV Max: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV STONK: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV FLC: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV updog: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV GATO: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV CLAUDIA: HTTPError: HTTP Error 429: Too Many Requests
 
 ## ☕ Почерпи ме с кафе
 
