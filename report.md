@@ -1,59 +1,59 @@
 # JARVIS SOLANA TREND SCANNER v2
-Проверка UTC: 2026-11-14T09:22:54+00:00
-Открити: 146 | Нови пулове (извадка): 95 | Двойки: 156 | Филтър: 12
+Проверка UTC: 2026-11-14T16:04:33+00:00
+Открити: 132 | Нови пулове (извадка): 84 | Двойки: 138 | Филтър: 14
 
 **Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**
 
 ### DEX coverage (observed tokens, not complete market)
-- pumpswap: 77
+- pumpswap: 66
 - meteora: 8
 - raydium: 5
 
-## 1. VICECITY — NO TRADE
-Mint: `Ep13piLgesAxM32dB4hVAsmhfWcsTJqVKmQHkYCKpump`
-Pool: `CB7Hu6stKCDViaEWzbSRiDpH4DKCpXdECzLQ7KbisDf2` | DEX: pumpswap
-Liquidity: $32,334 | Cap/FDV: $186,816 | Volume 1h: $371,516
-Buys/sells 1h: 3853/2998 | Change 1h: -0.3%
-Status reason: Insufficient closed M5/M1 candles
-ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/cb7hu6stkcdviaewzbsridph4dkcpxdeczlq7kbisdf2
-Holder risk / authorities / sellability: UNKNOWN
-
-## 2. AMC — NO TRADE
-Mint: `HWya5CpQiQWLnJfJVRDF9o8AHaUPnPMRa3vfQRczpump`
-Pool: `DxbQyPTjckQTSUWyUqJB11HpupPyLGJZ5x4z7ufHp3Gh` | DEX: pumpswap
-Liquidity: $154,496 | Cap/FDV: $4,185,894 | Volume 1h: $59,349
-Buys/sells 1h: 13366/5401 | Change 1h: -6.2%
+## 1. Snoopy — NO TRADE
+Mint: `7mEhH5gsuwPeBC9n9C2XQJdXinWhKGfNhrt4r8db47Cn`
+Pool: `5bYtv8P5197JM6oKwAt1hZBo1xJ8m7VTco1NArmqMv6B` | DEX: pumpswap
+Liquidity: $72,250 | Cap/FDV: $795,774 | Volume 1h: $838,247
+Buys/sells 1h: 8939/6412 | Change 1h: +64.1%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/dxbqyptjckqtsuwyuqjb11hpuppylgjz5x4z7ufhp3gh
+Source: https://dexscreener.com/solana/5bytv8p5197jm6okwat1hzbo1xj8m7vtco1narmqmv6b
 Holder risk / authorities / sellability: UNKNOWN
 
-## 3. CATE — NO TRADE
-Mint: `Ai66LHZG9MCzg1WKdawwqduVAXpNDUuV8M3uyq5ppump`
-Pool: `HMzvsEEmtzHhvZNw9uwbaG85HCTmFnkbhzUx16cy7ca3` | DEX: pumpswap
-Liquidity: $1,298,371 | Cap/FDV: $16,419,344 | Volume 1h: $34,118
-Buys/sells 1h: 101/45 | Change 1h: -4.0%
+## 2. STONK — NO TRADE
+Mint: `6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx`
+Pool: `zxTpi4BtaWX3mgdAPoezkMD1hxx8CdeCfrqXMWvSCLX` | DEX: meteora
+Liquidity: $1,846,075 | Cap/FDV: $40,000,780 | Volume 1h: $133,308
+Buys/sells 1h: 510/106 | Change 1h: -1.2%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/hmzvseemtzhhvznw9uwbag85hctmfnkbhzux16cy7ca3
+Source: https://dexscreener.com/solana/zxtpi4btawx3mgdapoezkmd1hxx8cdecfrqxmwvsclx
 Holder risk / authorities / sellability: UNKNOWN
 
-## 4. GTA6 — NO TRADE
-Mint: `4kjruqGHDsSqkMdFfCjV7Vb62HPFhtXyWc2t6JpQzDnz`
-Pool: `5AFbwVSQPJf4cgEjq4TajZYyPYUvYktrRN3SahNrPnmv` | DEX: meteora
-Liquidity: $63,484 | Cap/FDV: $6,758,048 | Volume 1h: $92,602
-Buys/sells 1h: 904/578 | Change 1h: -9.3%
+## 3. JENSEN — NO TRADE
+Mint: `B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump`
+Pool: `51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE` | DEX: pumpswap
+Liquidity: $65,899 | Cap/FDV: $740,236 | Volume 1h: $46,053
+Buys/sells 1h: 4997/2996 | Change 1h: +12.5%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/5afbwvsqpjf4cgejq4tajzyypyuvyktrrn3sahnrpnmv
+Source: https://dexscreener.com/solana/51kn4und5bwryfrftp1efw4upl8t4vtphz6okmlhr5ie
+Holder risk / authorities / sellability: UNKNOWN
+
+## 4. FLOAT — NO TRADE
+Mint: `Bv1a7cEj5aRnJQhMw4kRQqAFesMSd5LwcDnUzq52BMmr`
+Pool: `FJk9sajdc2Q4heRPPu3yLzkmf2ZByZkpiHQLv9e2bn5A` | DEX: raydium
+Liquidity: $317,846 | Cap/FDV: $3,121,069 | Volume 1h: $16,132
+Buys/sells 1h: 52/30 | Change 1h: +1.4%
+Status reason: OHLCV unavailable or API error
+ENTRY / SL / TP: NOT CONFIRMED — no invented prices
+Source: https://dexscreener.com/solana/fjk9sajdc2q4herppu3ylzkmf2zbyzkpihqlv9e2bn5a
 Holder risk / authorities / sellability: UNKNOWN
 
 ## 5. WASTED — NO TRADE
 Mint: `GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump`
 Pool: `TT7DKs9YjJZj1fwMGoPmKBmDreZzyMAMrHoDCGdfwqN` | DEX: pumpswap
-Liquidity: $182,770 | Cap/FDV: $3,784,959 | Volume 1h: $89,171
-Buys/sells 1h: 890/692 | Change 1h: -3.9%
+Liquidity: $167,077 | Cap/FDV: $3,220,319 | Volume 1h: $31,066
+Buys/sells 1h: 236/156 | Change 1h: +2.6%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
 Source: https://dexscreener.com/solana/tt7dks9yjjzj1fwmgopmkbmdrezzymamrhodcgdfwqn
@@ -61,9 +61,10 @@ Holder risk / authorities / sellability: UNKNOWN
 
 ### Data errors
 - Gecko trending_pools page 3: HTTPError
-- OHLCV AMC: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV CATE: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV GTA6: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV Snoopy: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV STONK: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV JENSEN: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV FLOAT: HTTPError: HTTP Error 429: Too Many Requests
 - OHLCV WASTED: HTTPError: HTTP Error 429: Too Many Requests
 
 ## ☕ Почерпи ме с кафе
