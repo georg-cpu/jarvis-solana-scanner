@@ -1,71 +1,72 @@
 # JARVIS SOLANA TREND SCANNER v2
-Проверка UTC: 2026-11-14T16:04:33+00:00
-Открити: 132 | Нови пулове (извадка): 84 | Двойки: 138 | Филтър: 14
+Проверка UTC: 2026-11-14T20:40:20+00:00
+Открити: 126 | Нови пулове (извадка): 83 | Двойки: 130 | Филтър: 14
 
 **Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**
 
 ### DEX coverage (observed tokens, not complete market)
-- pumpswap: 66
-- meteora: 8
-- raydium: 5
+- pumpswap: 62
+- meteora: 6
+- raydium: 4
+- orca: 1
 
-## 1. Snoopy — NO TRADE
-Mint: `7mEhH5gsuwPeBC9n9C2XQJdXinWhKGfNhrt4r8db47Cn`
-Pool: `5bYtv8P5197JM6oKwAt1hZBo1xJ8m7VTco1NArmqMv6B` | DEX: pumpswap
-Liquidity: $72,250 | Cap/FDV: $795,774 | Volume 1h: $838,247
-Buys/sells 1h: 8939/6412 | Change 1h: +64.1%
-Status reason: OHLCV unavailable or API error
-ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/5bytv8p5197jm6okwat1hzbo1xj8m7vtco1narmqmv6b
-Holder risk / authorities / sellability: UNKNOWN
-
-## 2. STONK — NO TRADE
-Mint: `6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx`
-Pool: `zxTpi4BtaWX3mgdAPoezkMD1hxx8CdeCfrqXMWvSCLX` | DEX: meteora
-Liquidity: $1,846,075 | Cap/FDV: $40,000,780 | Volume 1h: $133,308
-Buys/sells 1h: 510/106 | Change 1h: -1.2%
-Status reason: OHLCV unavailable or API error
-ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/zxtpi4btawx3mgdapoezkmd1hxx8cdecfrqxmwvsclx
-Holder risk / authorities / sellability: UNKNOWN
-
-## 3. JENSEN — NO TRADE
-Mint: `B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump`
-Pool: `51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE` | DEX: pumpswap
-Liquidity: $65,899 | Cap/FDV: $740,236 | Volume 1h: $46,053
-Buys/sells 1h: 4997/2996 | Change 1h: +12.5%
-Status reason: OHLCV unavailable or API error
-ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/51kn4und5bwryfrftp1efw4upl8t4vtphz6okmlhr5ie
-Holder risk / authorities / sellability: UNKNOWN
-
-## 4. FLOAT — NO TRADE
-Mint: `Bv1a7cEj5aRnJQhMw4kRQqAFesMSd5LwcDnUzq52BMmr`
-Pool: `FJk9sajdc2Q4heRPPu3yLzkmf2ZByZkpiHQLv9e2bn5A` | DEX: raydium
-Liquidity: $317,846 | Cap/FDV: $3,121,069 | Volume 1h: $16,132
-Buys/sells 1h: 52/30 | Change 1h: +1.4%
-Status reason: OHLCV unavailable or API error
-ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/fjk9sajdc2q4herppu3ylzkmf2zbyzkpihqlv9e2bn5a
-Holder risk / authorities / sellability: UNKNOWN
-
-## 5. WASTED — NO TRADE
+## 1. WASTED — NO TRADE
 Mint: `GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump`
 Pool: `TT7DKs9YjJZj1fwMGoPmKBmDreZzyMAMrHoDCGdfwqN` | DEX: pumpswap
-Liquidity: $167,077 | Cap/FDV: $3,220,319 | Volume 1h: $31,066
-Buys/sells 1h: 236/156 | Change 1h: +2.6%
+Liquidity: $187,478 | Cap/FDV: $4,160,814 | Volume 1h: $56,187
+Buys/sells 1h: 499/282 | Change 1h: +25.4%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
 Source: https://dexscreener.com/solana/tt7dks9yjjzj1fwmgopmkbmdrezzymamrhodcgdfwqn
 Holder risk / authorities / sellability: UNKNOWN
 
+## 2. Bonk — NO TRADE
+Mint: `DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263`
+Pool: `5zpyutJu9ee6jFymDGoK7F6S5Kczqtc9FomP3ueKuyA9` | DEX: orca
+Liquidity: $228,734 | Cap/FDV: $204,694,518 | Volume 1h: $21,774
+Buys/sells 1h: 1406/254 | Change 1h: -3.1%
+Status reason: OHLCV unavailable or API error
+ENTRY / SL / TP: NOT CONFIRMED — no invented prices
+Source: https://dexscreener.com/solana/5zpyutju9ee6jfymdgok7f6s5kczqtc9fomp3uekuya9
+Holder risk / authorities / sellability: UNKNOWN
+
+## 3. JENSEN — NO TRADE
+Mint: `B2YpP21vQBESJ2jtnuhPujEUT61KVRxZ2X5gsDcUpump`
+Pool: `51KN4und5bwRyfRfTP1eFw4uPL8t4vTPHZ6okmLhr5iE` | DEX: pumpswap
+Liquidity: $58,038 | Cap/FDV: $581,665 | Volume 1h: $53,225
+Buys/sells 1h: 4973/3083 | Change 1h: +38.6%
+Status reason: OHLCV unavailable or API error
+ENTRY / SL / TP: NOT CONFIRMED — no invented prices
+Source: https://dexscreener.com/solana/51kn4und5bwryfrftp1efw4upl8t4vtphz6okmlhr5ie
+Holder risk / authorities / sellability: UNKNOWN
+
+## 4. STONK — NO TRADE
+Mint: `6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx`
+Pool: `zxTpi4BtaWX3mgdAPoezkMD1hxx8CdeCfrqXMWvSCLX` | DEX: meteora
+Liquidity: $1,819,575 | Cap/FDV: $39,004,140 | Volume 1h: $70,768
+Buys/sells 1h: 332/129 | Change 1h: -2.8%
+Status reason: OHLCV unavailable or API error
+ENTRY / SL / TP: NOT CONFIRMED — no invented prices
+Source: https://dexscreener.com/solana/zxtpi4btawx3mgdapoezkmd1hxx8cdecfrqxmwvsclx
+Holder risk / authorities / sellability: UNKNOWN
+
+## 5. Lucia — NO TRADE
+Mint: `HsZXb9rppRQarZHHCvuLkKP7sAKPMCwrarf5KTTcpump`
+Pool: `GfJ9N22hFFBqF29M5yxmCU39rcWLXarCbpvNzr71k4YW` | DEX: pumpswap
+Liquidity: $121,823 | Cap/FDV: $1,082,030 | Volume 1h: $57,497
+Buys/sells 1h: 353/264 | Change 1h: +10.2%
+Status reason: OHLCV unavailable or API error
+ENTRY / SL / TP: NOT CONFIRMED — no invented prices
+Source: https://dexscreener.com/solana/gfj9n22hffbqf29m5yxmcu39rcwlxarcbpvnzr71k4yw
+Holder risk / authorities / sellability: UNKNOWN
+
 ### Data errors
 - Gecko trending_pools page 3: HTTPError
-- OHLCV Snoopy: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV STONK: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV JENSEN: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV FLOAT: HTTPError: HTTP Error 429: Too Many Requests
 - OHLCV WASTED: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV Bonk: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV JENSEN: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV STONK: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV Lucia: HTTPError: HTTP Error 429: Too Many Requests
 
 ## ☕ Почерпи ме с кафе
 
