@@ -1,72 +1,71 @@
 # JARVIS SOLANA TREND SCANNER v2
-Проверка UTC: 2026-11-20T02:41:18+00:00
-Открити: 123 | Нови пулове (извадка): 79 | Двойки: 132 | Филтър: 16
+Проверка UTC: 2026-11-20T10:37:47+00:00
+Открити: 135 | Нови пулове (извадка): 100 | Двойки: 144 | Филтър: 17
 
 **Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**
 
 ### DEX coverage (observed tokens, not complete market)
-- pumpswap: 58
-- raydium: 11
+- pumpswap: 51
 - meteora: 9
+- raydium: 9
 - orca: 1
 
-## 1. Brian — NO TRADE
-Mint: `CrJBEGkuaYqtx2W5QHnagg4RL6A2f7bZhiFcssQ5pump`
-Pool: `C99KRnNZ9xx4SVd5HdSN24x4ex4W2MwNxdvvGGy8HRWx` | DEX: pumpswap
-Liquidity: $50,658 | Cap/FDV: $499,315 | Volume 1h: $236,263
-Buys/sells 1h: 14023/4606 | Change 1h: +55.0%
-Status reason: OHLCV unavailable or API error
+## 1. PATRICK — WAIT
+Mint: `8mnJZnxaNLqVwkaWWGH7dKmoEzyYzGJx5pHaCp7spump`
+Pool: `BCgR8mwLDXeg9Sh9HWGzk9kMbuVN6bQ3TjUnUgfbZ6Bz` | DEX: pumpswap
+Liquidity: $16,765 | Cap/FDV: $55,618 | Volume 1h: $86,972
+Buys/sells 1h: 1085/804 | Change 1h: +31.4%
+Status reason: M5 breakout + volume + M1 confirmation not all met
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/c99krnnz9xx4svd5hdsn24x4ex4w2mwnxdvvggy8hrwx
+Source: https://dexscreener.com/solana/bcgr8mwldxeg9sh9hwgzk9kmbuvn6bq3tjunugfbz6bz
 Holder risk / authorities / sellability: UNKNOWN
 
-## 2. pCAT — NO TRADE
-Mint: `BLdC7hwRijHudKYDmtEkx1SHUdBWm8XbjBCSvwa6pump`
-Pool: `BvCFfpbkfoCTzpWThTRJfCJ3BTEEcyAZ7vEWRMZSEkEE` | DEX: pumpswap
-Liquidity: $19,732 | Cap/FDV: $59,784 | Volume 1h: $45,162
-Buys/sells 1h: 724/388 | Change 1h: +35.2%
+## 2. FIONA — NO TRADE
+Mint: `B34nXKzCgsJb9ChLuSHPRpXLE3WFSWyeT8Cqkzzmpump`
+Pool: `DjbLtX1HRGZZrJgJ7CwTX6SN3D7tBLiytkGwomBUwTVB` | DEX: pumpswap
+Liquidity: $162,743 | Cap/FDV: $3,208,967 | Volume 1h: $242,482
+Buys/sells 1h: 2285/2102 | Change 1h: +21.6%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/bvcffpbkfoctzpwthtrjfcj3bteecyaz7vewrmzsekee
+Source: https://dexscreener.com/solana/djbltx1hrgzzrjgj7cwtx6sn3d7tbliytkgwombuwtvb
 Holder risk / authorities / sellability: UNKNOWN
 
 ## 3. STONK — NO TRADE
 Mint: `6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx`
 Pool: `zxTpi4BtaWX3mgdAPoezkMD1hxx8CdeCfrqXMWvSCLX` | DEX: meteora
-Liquidity: $1,710,427 | Cap/FDV: $35,276,237 | Volume 1h: $116,473
-Buys/sells 1h: 481/174 | Change 1h: -5.2%
+Liquidity: $1,622,858 | Cap/FDV: $33,683,092 | Volume 1h: $120,981
+Buys/sells 1h: 544/113 | Change 1h: -2.3%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
 Source: https://dexscreener.com/solana/zxtpi4btawx3mgdapoezkmd1hxx8cdecfrqxmwvsclx
 Holder risk / authorities / sellability: UNKNOWN
 
-## 4. SHIT — NO TRADE
-Mint: `Fn95NtGXWPaJXc4N5y9rVkUq1NwZbjBNJzPVvNRLpump`
-Pool: `D1LXpkFpbQr1YwVgWYQsed93czdz8hA7s9g7yb8LMFfe` | DEX: pumpswap
-Liquidity: $94,727 | Cap/FDV: $1,370,913 | Volume 1h: $89,964
-Buys/sells 1h: 3941/2673 | Change 1h: -5.0%
+## 4. PUMP — NO TRADE
+Mint: `pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn`
+Pool: `2uF4Xh61rDwxnG9woyxsVQP7zuA6kLFpb3NvnRQeoiSd` | DEX: pumpswap
+Liquidity: $18,076,161 | Cap/FDV: $1,169,538,037 | Volume 1h: $38,535
+Buys/sells 1h: 61/23 | Change 1h: +0.3%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/d1lxpkfpbqr1ywvgwyqsed93czdz8ha7s9g7yb8lmffe
+Source: https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd
 Holder risk / authorities / sellability: UNKNOWN
 
-## 5. Leonida — NO TRADE
-Mint: `9rbKkz2BDQBVgZmrHY6d7PTq2ge91gkpEyE4y9PPpump`
-Pool: `6Ecx5Lm5dinVma1xWMEumj6ABZL3g1Xx4t5rxQxELzdn` | DEX: pumpswap
-Liquidity: $84,091 | Cap/FDV: $1,176,359 | Volume 1h: $66,478
-Buys/sells 1h: 1392/811 | Change 1h: +6.3%
+## 5. CLAUDIA — NO TRADE
+Mint: `2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM`
+Pool: `Fe7bpDYCs74GqiCUF14HwgUMToPKV1d9mDYVX5BTohFr` | DEX: pumpswap
+Liquidity: $331,214 | Cap/FDV: $5,219,206 | Volume 1h: $12,614
+Buys/sells 1h: 104/43 | Change 1h: -3.8%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/6ecx5lm5dinvma1xwmeumj6abzl3g1xx4t5rxqxelzdn
+Source: https://dexscreener.com/solana/fe7bpdycs74gqicuf14hwgumtopkv1d9mdyvx5btohfr
 Holder risk / authorities / sellability: UNKNOWN
 
 ### Data errors
 - Gecko trending_pools page 3: HTTPError
-- OHLCV Brian: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV pCAT: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV FIONA: HTTPError: HTTP Error 429: Too Many Requests
 - OHLCV STONK: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV SHIT: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV Leonida: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV PUMP: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV CLAUDIA: HTTPError: HTTP Error 429: Too Many Requests
 
 ## ☕ Почерпи ме с кафе
 
