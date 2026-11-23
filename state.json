@@ -1,105 +1,109 @@
 {
-  "checked_at_utc": "2026-11-22T22:11:24+00:00",
-  "discovered_addresses": 110,
-  "new_pools_sampled": 72,
+  "checked_at_utc": "2026-11-23T02:54:53+00:00",
+  "discovered_addresses": 129,
+  "new_pools_sampled": 86,
   "gecko_source_counts": {
     "new_pools": 60,
     "trending_pools": 40
   },
   "dex_coverage": {
-    "raydium": 11,
-    "pumpswap": 51,
+    "pumpswap": 58,
     "meteora": 7,
+    "raydium": 11,
     "orca": 1
   },
-  "pairs": 114,
-  "qualified": 14,
+  "pairs": 133,
+  "qualified": 18,
   "candidates": [
+    {
+      "address": "3BcJ4SSCfbxDMrWcUDucyCWxMjmy4M2ECCtvxu86pump",
+      "symbol": "FSDV15",
+      "pool": "DXVpx5PnefCiLVMucmUxrX2x7MgSDMTggmQgiRA2zV6W",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/dxvpx5pnefcilvmucmuxrx2x7mgsdmtggmqgira2zv6w",
+      "market_cap_usd": 2373782.0,
+      "liquidity_usd": 112228.1,
+      "volume_h1_usd": 99400.35,
+      "buys_h1": 6734,
+      "sells_h1": 1890,
+      "price_change_h1_pct": -8.35,
+      "score": 70.6,
+      "signal": {
+        "status": "WAIT",
+        "reason": "M5 breakout + volume + M1 confirmation not all met",
+        "m5_breakout": false,
+        "volume_confirmed": false,
+        "m1_confirmed": true,
+        "trend_confirmed": true
+      }
+    },
+    {
+      "address": "GNpGx43ABX5Na4PkQUXBXCkeYfoKUC86Kcifx8ycpump",
+      "symbol": "FASTMS",
+      "pool": "gzJwvi8SvxF2v5aF3pGmmMAuLXoNQB69KpxUdaNm9Yw",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/gzjwvi8svxf2v5af3pgmmmaulxonqb69kpxudanm9yw",
+      "market_cap_usd": 48713.0,
+      "liquidity_usd": 90488.05,
+      "volume_h1_usd": 13502.51,
+      "buys_h1": 73,
+      "sells_h1": 25,
+      "price_change_h1_pct": 15.64,
+      "score": 64.4,
+      "signal": {
+        "status": "NO TRADE",
+        "reason": "OHLCV unavailable or API error"
+      }
+    },
+    {
+      "address": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+      "symbol": "STONK",
+      "pool": "zxTpi4BtaWX3mgdAPoezkMD1hxx8CdeCfrqXMWvSCLX",
+      "dex": "meteora",
+      "url": "https://dexscreener.com/solana/zxtpi4btawx3mgdapoezkmd1hxx8cdecfrqxmwvsclx",
+      "market_cap_usd": 35232802.0,
+      "liquidity_usd": 1590375.67,
+      "volume_h1_usd": 12460.13,
+      "buys_h1": 121,
+      "sells_h1": 22,
+      "price_change_h1_pct": -2.1,
+      "score": 60.1,
+      "signal": {
+        "status": "NO TRADE",
+        "reason": "OHLCV unavailable or API error"
+      }
+    },
+    {
+      "address": "E9rWKjVhHMxQkxfREr7Li8Yy46rVcWiWHoKVQAe9pump",
+      "symbol": "MINELIUS",
+      "pool": "7yJDP2VmgazVEa6usbXM61uSk5AT3J4dZFaJQvq2LnfZ",
+      "dex": "pumpswap",
+      "url": "https://dexscreener.com/solana/7yjdp2vmgazvea6usbxm61usk5at3j4dzfajqvq2lnfz",
+      "market_cap_usd": 8753053.0,
+      "liquidity_usd": 219592.9,
+      "volume_h1_usd": 76640.68,
+      "buys_h1": 3999,
+      "sells_h1": 2258,
+      "price_change_h1_pct": 6.14,
+      "score": 54.4,
+      "signal": {
+        "status": "NO TRADE",
+        "reason": "OHLCV unavailable or API error"
+      }
+    },
     {
       "address": "BzPyyYCTmQNq2BcfQ4ANAvCYk54rnmQEXMFvFT8RhWMi",
       "symbol": "MCAT",
       "pool": "9pqo6WVjKvYNnRgvPVaoTe1zZvnhtB248ChKnUmKfHH4",
       "dex": "raydium",
       "url": "https://dexscreener.com/solana/9pqo6wvjkvynnrgvpvaote1zzvnhtb248chknumkfhh4",
-      "market_cap_usd": 420598.0,
-      "liquidity_usd": 112139.32,
-      "volume_h1_usd": 199369.47,
-      "buys_h1": 2243,
-      "sells_h1": 1743,
-      "price_change_h1_pct": 9.2,
-      "score": 67.9,
-      "signal": {
-        "status": "NO TRADE",
-        "reason": "OHLCV unavailable or API error"
-      }
-    },
-    {
-      "address": "FuKY3dk7QmpbDdQRjzbjB3G6PiCuqKNvN4dAWDpwpump",
-      "symbol": "OpenIndex",
-      "pool": "4X1SAtTgzqfyRDu237HxJLtSfTosMHe9EuXNPvRfFbjc",
-      "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/4x1sattgzqfyrdu237hxjltsftosmhe9euxnpvrffbjc",
-      "market_cap_usd": 362590.0,
-      "liquidity_usd": 46701.32,
-      "volume_h1_usd": 157529.23,
-      "buys_h1": 1951,
-      "sells_h1": 1519,
-      "price_change_h1_pct": -2.35,
-      "score": 67.3,
-      "signal": {
-        "status": "NO TRADE",
-        "reason": "OHLCV unavailable or API error"
-      }
-    },
-    {
-      "address": "AVyUBtCR672RzpRz6fXXKCznCz7WerMyKtm3PdYGWgo",
-      "symbol": "MCAT",
-      "pool": "ELLFygN6fFDgSDhq8B8KiVeUDUpypebm6v1v9XDACMZo",
-      "dex": "pumpswap",
-      "url": "https://dexscreener.com/solana/ellfygn6ffdgsdhq8b8kiveudupypebm6v1v9xdacmzo",
-      "market_cap_usd": 46303.0,
-      "liquidity_usd": 83839.83,
-      "volume_h1_usd": 23186.34,
-      "buys_h1": 71,
-      "sells_h1": 24,
-      "price_change_h1_pct": 17.17,
-      "score": 64.9,
-      "signal": {
-        "status": "NO TRADE",
-        "reason": "OHLCV unavailable or API error"
-      }
-    },
-    {
-      "address": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
-      "symbol": "SI",
-      "pool": "B4VFURUHHzyt8YzBGBV9jiarBvjh1EbMAbRNBnNqaxUD",
-      "dex": "raydium",
-      "url": "https://dexscreener.com/solana/b4vfuruhhzyt8yzbgbv9jiarbvjh1ebmabrnbnnqaxud",
-      "market_cap_usd": 6008529.0,
-      "liquidity_usd": 283784.11,
-      "volume_h1_usd": 170020.24,
-      "buys_h1": 622,
-      "sells_h1": 389,
-      "price_change_h1_pct": 24.52,
-      "score": 63.0,
-      "signal": {
-        "status": "NO TRADE",
-        "reason": "OHLCV unavailable or API error"
-      }
-    },
-    {
-      "address": "zcRvzm7gAfYGde8gRwaSYxNryL47SjLVUQLAf1bdoor",
-      "symbol": "SIDOOR",
-      "pool": "3peugE6Fm4fpaVvrV2KBFN3nvLbCGEhGoUXDDxAHuscR",
-      "dex": "meteora",
-      "url": "https://dexscreener.com/solana/3peuge6fm4fpavvrv2kbfn3nvlbcgehgouxddxahuscr",
-      "market_cap_usd": 339135.0,
-      "liquidity_usd": 45519.16,
-      "volume_h1_usd": 79992.48,
-      "buys_h1": 1040,
-      "sells_h1": 715,
-      "price_change_h1_pct": 20.16,
-      "score": 57.4,
+      "market_cap_usd": 428408.0,
+      "liquidity_usd": 112615.93,
+      "volume_h1_usd": 33204.87,
+      "buys_h1": 374,
+      "sells_h1": 298,
+      "price_change_h1_pct": 1.37,
+      "score": 46.6,
       "signal": {
         "status": "NO TRADE",
         "reason": "OHLCV unavailable or API error"
@@ -108,11 +112,10 @@
   ],
   "errors": [
     "Gecko trending_pools page 3: HTTPError",
-    "OHLCV MCAT: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV OpenIndex: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV MCAT: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV SI: HTTPError: HTTP Error 429: Too Many Requests",
-    "OHLCV SIDOOR: HTTPError: HTTP Error 429: Too Many Requests"
+    "OHLCV FASTMS: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV STONK: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV MINELIUS: HTTPError: HTTP Error 429: Too Many Requests",
+    "OHLCV MCAT: HTTPError: HTTP Error 429: Too Many Requests"
   ],
   "limitations": [
     "Discovery combines DEX Screener promotion feeds and GeckoTerminal sampled new/trending pools; NOT whole-market coverage",
