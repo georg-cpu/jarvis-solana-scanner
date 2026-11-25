@@ -1,72 +1,72 @@
 # JARVIS SOLANA TREND SCANNER v2
-Проверка UTC: 2026-11-25T03:43:32+00:00
-Открити: 134 | Нови пулове (извадка): 97 | Двойки: 139 | Филтър: 10
+Проверка UTC: 2026-11-25T13:39:02+00:00
+Открити: 136 | Нови пулове (извадка): 100 | Двойки: 140 | Филтър: 20
 
 **Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**
 
 ### DEX coverage (observed tokens, not complete market)
-- pumpswap: 48
+- pumpswap: 40
 - raydium: 12
-- meteora: 10
-- orca: 3
+- meteora: 9
+- orca: 1
 
-## 1. CATE — NO TRADE
-Mint: `Ai66LHZG9MCzg1WKdawwqduVAXpNDUuV8M3uyq5ppump`
-Pool: `HMzvsEEmtzHhvZNw9uwbaG85HCTmFnkbhzUx16cy7ca3` | DEX: pumpswap
-Liquidity: $1,264,355 | Cap/FDV: $16,600,853 | Volume 1h: $11,308
-Buys/sells 1h: 92/26 | Change 1h: +0.2%
+## 1. JaoJiu — NO TRADE
+Mint: `2UyrvgCRXiEwiKRVk96gs6B4myrBHZAfcLyMVLE8vSCy`
+Pool: `4f4F69asRNnyyCidkkmNG9EsFt1fGw2CWiNeqcRwAtN8` | DEX: pumpswap
+Liquidity: $27,810 | Cap/FDV: $138,106 | Volume 1h: $102,830
+Buys/sells 1h: 1197/937 | Change 1h: +48.4%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/hmzvseemtzhhvznw9uwbag85hctmfnkbhzux16cy7ca3
+Source: https://dexscreener.com/solana/4f4f69asrnnyycidkkmng9esft1fgw2cwineqcrwatn8
 Holder risk / authorities / sellability: UNKNOWN
 
-## 2. CARDS — NO TRADE
-Mint: `CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp`
-Pool: `HnhpJPJgBG2KwniMTNW8cVBHvk1hFog3RC3kjnyc23tD` | DEX: raydium
-Liquidity: $3,336,658 | Cap/FDV: $148,155,957 | Volume 1h: $24,657
-Buys/sells 1h: 32/17 | Change 1h: +0.4%
+## 2. OUROBOROS — NO TRADE
+Mint: `38EDdUxnJvrnDsJyB45E2W3pK26qLEjmWTvsEmMuG9ZR`
+Pool: `2SHPxaj6vZmf9nWzfgsGnoHGp2MfNyEVyt7s9qYvkUHY` | DEX: raydium
+Liquidity: $18,775 | Cap/FDV: $73,976 | Volume 1h: $86,016
+Buys/sells 1h: 1178/781 | Change 1h: +15.7%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/hnhpjpjgbg2kwnimtnw8cvbhvk1hfog3rc3kjnyc23td
+Source: https://dexscreener.com/solana/2shpxaj6vzmf9nwzfgsgnohgp2mfnyevyt7s9qyvkuhy
 Holder risk / authorities / sellability: UNKNOWN
 
-## 3. KMNO — NO TRADE
-Mint: `KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS`
-Pool: `3ndjN1nJVUKGrJBc1hhVpER6kWTZKHdyDrPyCJyX3CXK` | DEX: orca
-Liquidity: $1,378,928 | Cap/FDV: $136,962,235 | Volume 1h: $56,563
-Buys/sells 1h: 504/284 | Change 1h: -0.1%
+## 3. Pompom — NO TRADE
+Mint: `5EmvWDizkpjAXbcfCcVq69w1id8GaLzi4LLwtuSgpump`
+Pool: `7kNYdYbHbGMdQczmKSxqNzg4p4pGc6VpERzMfPBptGso` | DEX: pumpswap
+Liquidity: $40,598 | Cap/FDV: $291,623 | Volume 1h: $635,465
+Buys/sells 1h: 8607/6590 | Change 1h: +1.2%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/3ndjn1njvukgrjbc1hhvper6kwtzkhdydrpycjyx3cxk
+Source: https://dexscreener.com/solana/7knydybhbgmdqczmksxqnzg4p4pgc6vperzmfpbptgso
 Holder risk / authorities / sellability: UNKNOWN
 
-## 4. FIONA — NO TRADE
-Mint: `B34nXKzCgsJb9ChLuSHPRpXLE3WFSWyeT8Cqkzzmpump`
-Pool: `DjbLtX1HRGZZrJgJ7CwTX6SN3D7tBLiytkGwomBUwTVB` | DEX: pumpswap
-Liquidity: $163,948 | Cap/FDV: $2,307,598 | Volume 1h: $62,397
-Buys/sells 1h: 398/301 | Change 1h: -5.2%
+## 4. JIMMY — NO TRADE
+Mint: `38M2z4UCfZEkUHFzD48vhKQhFhNyRGto8pZbLjNipump`
+Pool: `FnHWfV49ywCtGCDTyf34AVN8BiXxcgXUKqLctkrkP1gQ` | DEX: pumpswap
+Liquidity: $105,307 | Cap/FDV: $1,479,978 | Volume 1h: $169,669
+Buys/sells 1h: 1145/1069 | Change 1h: +16.6%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/djbltx1hrgzzrjgj7cwtx6sn3d7tbliytkgwombuwtvb
+Source: https://dexscreener.com/solana/fnhwfv49ywctgcdtyf34avn8bixxcgxukqlctkrkp1gq
 Holder risk / authorities / sellability: UNKNOWN
 
-## 5. PUMP — NO TRADE
-Mint: `pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn`
-Pool: `2uF4Xh61rDwxnG9woyxsVQP7zuA6kLFpb3NvnRQeoiSd` | DEX: pumpswap
-Liquidity: $17,645,899 | Cap/FDV: $855,744,825 | Volume 1h: $87,281
-Buys/sells 1h: 164/97 | Change 1h: +1.1%
+## 5. TANGENT — NO TRADE
+Mint: `BQYzmKyoSzdgeaeRiRwKJdWVaiLjpngUH6YT49PNNhsS`
+Pool: `8v7xwYmDbJMSant4zJX9hjFi5MfoVYUh98F1LexA8sqz` | DEX: raydium
+Liquidity: $15,095 | Cap/FDV: $43,897 | Volume 1h: $33,606
+Buys/sells 1h: 602/351 | Change 1h: +51.5%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd
+Source: https://dexscreener.com/solana/8v7xwymdbjmsant4zjx9hjfi5mfovyuh98f1lexa8sqz
 Holder risk / authorities / sellability: UNKNOWN
 
 ### Data errors
 - Gecko trending_pools page 3: HTTPError
-- OHLCV CATE: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV CARDS: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV KMNO: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV FIONA: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV PUMP: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV JaoJiu: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV OUROBOROS: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV Pompom: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV JIMMY: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV TANGENT: HTTPError: HTTP Error 429: Too Many Requests
 
 ## ☕ Почерпи ме с кафе
 
