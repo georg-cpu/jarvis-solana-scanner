@@ -1,72 +1,71 @@
 # JARVIS SOLANA TREND SCANNER v2
-Проверка UTC: 2026-11-27T23:36:41+00:00
-Открити: 116 | Нови пулове (извадка): 70 | Двойки: 120 | Филтър: 8
+Проверка UTC: 2026-11-28T04:57:40+00:00
+Открити: 140 | Нови пулове (извадка): 99 | Двойки: 144 | Филтър: 7
 
 **Внимание: всички токени са с НЕПРОВЕРЕН on-chain rug риск. Нивата не са препоръки за сделки.**
 
 ### DEX coverage (observed tokens, not complete market)
-- pumpswap: 52
-- raydium: 9
-- meteora: 5
+- pumpswap: 59
+- meteora: 12
+- raydium: 8
 - orca: 2
 
-## 1. FIONA — NO TRADE
+## 1. WETH — WAIT
+Mint: `7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs`
+Pool: `HktfL7iwGKT5QHjywQkcDnZXScoh811k7akrMZJkCcEF` | DEX: orca
+Liquidity: $3,483,650 | Cap/FDV: $144,751,274 | Volume 1h: $68,721
+Buys/sells 1h: 142/46 | Change 1h: -0.0%
+Status reason: M5 breakout + volume + M1 confirmation not all met
+ENTRY / SL / TP: NOT CONFIRMED — no invented prices
+Source: https://dexscreener.com/solana/hktfl7iwgkt5qhjywqkcdnzxscoh811k7akrmzjkccef
+Holder risk / authorities / sellability: UNKNOWN
+
+## 2. ANSEM — NO TRADE
+Mint: `9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump`
+Pool: `FnzKY6x7entQ1eR3D225dQyT7ybfka4PskBMQhb8L3CC` | DEX: pumpswap
+Liquidity: $750,346 | Cap/FDV: $18,117,187 | Volume 1h: $24,383
+Buys/sells 1h: 84/49 | Change 1h: -3.4%
+Status reason: OHLCV unavailable or API error
+ENTRY / SL / TP: NOT CONFIRMED — no invented prices
+Source: https://dexscreener.com/solana/fnzky6x7entq1er3d225dqyt7ybfka4pskbmqhb8l3cc
+Holder risk / authorities / sellability: UNKNOWN
+
+## 3. FIONA — NO TRADE
 Mint: `B34nXKzCgsJb9ChLuSHPRpXLE3WFSWyeT8Cqkzzmpump`
 Pool: `DjbLtX1HRGZZrJgJ7CwTX6SN3D7tBLiytkGwomBUwTVB` | DEX: pumpswap
-Liquidity: $125,106 | Cap/FDV: $1,213,076 | Volume 1h: $40,126
-Buys/sells 1h: 320/162 | Change 1h: -9.5%
+Liquidity: $125,853 | Cap/FDV: $1,221,458 | Volume 1h: $15,800
+Buys/sells 1h: 175/121 | Change 1h: -2.7%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
 Source: https://dexscreener.com/solana/djbltx1hrgzzrjgj7cwtx6sn3d7tbliytkgwombuwtvb
 Holder risk / authorities / sellability: UNKNOWN
 
-## 2. PUMPCHAN — NO TRADE
-Mint: `Fo2HAwr7ZAUM2bSZ7MWSi16e3aWGpbw5MsUDYCttpump`
-Pool: `DDcyemq9bkyqtC93djkwaH6VaMKCjVsoCUVGV29q7teB` | DEX: pumpswap
-Liquidity: $307,008 | Cap/FDV: $16,031,855 | Volume 1h: $74,864
-Buys/sells 1h: 478/326 | Change 1h: -0.2%
+## 4. pippin — NO TRADE
+Mint: `Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump`
+Pool: `8WwcNqdZjCY5Pt7AkhupAFknV2txca9sq6YBkGzLbvdt` | DEX: raydium
+Liquidity: $3,301,650 | Cap/FDV: $17,360,243 | Volume 1h: $15,899
+Buys/sells 1h: 68/53 | Change 1h: +1.2%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/ddcyemq9bkyqtc93djkwah6vamkcjvsocuvgv29q7teb
+Source: https://dexscreener.com/solana/8wwcnqdzjcy5pt7akhupafknv2txca9sq6ybkgzlbvdt
 Holder risk / authorities / sellability: UNKNOWN
 
-## 3. TRUMP — NO TRADE
-Mint: `6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN`
-Pool: `3C5YE97HADPDxZehYq9Cis8AXr9aNyrUsczKzE1nDbW9` | DEX: meteora
-Liquidity: $3,821,823 | Cap/FDV: $257,546,254 | Volume 1h: $19,516
-Buys/sells 1h: 44/29 | Change 1h: +0.7%
+## 5. Fireball — NO TRADE
+Mint: `B9wbjDJ4FbHMsZmoXAkJSTAwuePaJUKbySvnK5zApump`
+Pool: `Dnxt5J7R1ATKnh23rSbwYuuc9NeixsXBgfRLbMBNmkS2` | DEX: pumpswap
+Liquidity: $46,779 | Cap/FDV: $407,630 | Volume 1h: $45,877
+Buys/sells 1h: 1100/643 | Change 1h: -3.6%
 Status reason: OHLCV unavailable or API error
 ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/3c5ye97hadpdxzehyq9cis8axr9anyrusczkze1ndbw9
-Holder risk / authorities / sellability: UNKNOWN
-
-## 4. WETH — NO TRADE
-Mint: `7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs`
-Pool: `HktfL7iwGKT5QHjywQkcDnZXScoh811k7akrMZJkCcEF` | DEX: orca
-Liquidity: $3,479,249 | Cap/FDV: $144,571,660 | Volume 1h: $182,752
-Buys/sells 1h: 282/212 | Change 1h: +0.2%
-Status reason: OHLCV unavailable or API error
-ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/hktfl7iwgkt5qhjywqkcdnzxscoh811k7akrmzjkccef
-Holder risk / authorities / sellability: UNKNOWN
-
-## 5. HYPE — NO TRADE
-Mint: `98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g`
-Pool: `31KrYUDzgEQhEgr1JSNVfHAknWACcF97CtUaU8enKQsy` | DEX: orca
-Liquidity: $2,830,940 | Cap/FDV: $45,679,491 | Volume 1h: $172,329
-Buys/sells 1h: 1293/1264 | Change 1h: -0.6%
-Status reason: OHLCV unavailable or API error
-ENTRY / SL / TP: NOT CONFIRMED — no invented prices
-Source: https://dexscreener.com/solana/31kryudzgeqhegr1jsnvfhaknwaccf97ctuau8enkqsy
+Source: https://dexscreener.com/solana/dnxt5j7r1atknh23rsbwyuuc9neixsxbgfrlbmbnmks2
 Holder risk / authorities / sellability: UNKNOWN
 
 ### Data errors
 - Gecko trending_pools page 3: HTTPError
+- OHLCV ANSEM: HTTPError: HTTP Error 429: Too Many Requests
 - OHLCV FIONA: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV PUMPCHAN: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV TRUMP: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV WETH: HTTPError: HTTP Error 429: Too Many Requests
-- OHLCV HYPE: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV pippin: HTTPError: HTTP Error 429: Too Many Requests
+- OHLCV Fireball: HTTPError: HTTP Error 429: Too Many Requests
 
 ## ☕ Почерпи ме с кафе
 
